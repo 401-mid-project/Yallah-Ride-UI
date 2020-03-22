@@ -1,18 +1,37 @@
-import React from 'react';
+import React , {useContext ,useEffect} from 'react';
+import {Route , Redirect} from 'react-router-dom';
 
+//components
 import MainPage from './components/mainpage';
-import Logger from './contexts/logger.js'
+import Dashboard from './components/dashboard' 
+
+//contexts 
+import {loggerContext} from './contexts/logger.js';
 
 
 const App = ()=> {
+    const useLogger = useContext(loggerContext);
+    console.log('app.js' , useLogger.logState);
+
+    useEffect(()=>{
+        let state = useLogger.logState ; 
+    })
+
 
     return(
         <>
-        <Logger>
+        {/* { console.log('inside' , useLogger.logState)} */}
 
-        <MainPage />
+        <Route exact path='/'>
+        {useLogger.logState ? <Redirect to='/dashboard' /> : <MainPage />}
+        </Route>
 
-        </Logger>
+        <Route exact path= '/dashboard'>
+        {useLogger.logState ? <Dashboard /> : <Redirect to='/' />}
+         
+        </Route>
+
+
         </>
     )
 

@@ -16,13 +16,14 @@
   "bugs": {
     "url": "https://github.com/401-mid-project/Yallah-Ride-UI/issues"
   },
-  "homepage": "https://github.com/401-mid-project/Yallah-Ride-UI",
+  "homepage": "/",
   "dependencies": {
     "eslint": "^6.8.0",
     "jsonwebtoken": "^8.5.1",
     "react": "^16.13.1",
     "react-cookies": "^0.1.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.1"
   },
   "browserslist": {

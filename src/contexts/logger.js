@@ -34,7 +34,7 @@ function LoggerProvider(props){
     let logIn = async(username,password)=>{
 
         try{
-
+            
             let output  = await fetch(`${API}/signin`,{
                 method:'POST',
                 mode: 'cors',
@@ -55,9 +55,11 @@ function LoggerProvider(props){
         cookie.save('auth' , null);
         cookie.save('_id' , '');
         setLogState(false);
-        setUserId({});
+        setUserId('');
     }
 
+
+    // to stay logged in after refresh  
     useEffect(()=>{
 
         let loadToken = cookie.load('auth');
@@ -74,7 +76,7 @@ function LoggerProvider(props){
 
 
 
-    let keys = {logIn , logOut , logState ,userId};
+    let keys = {logIn , logOut , logState ,userId ,validator};
 
     return(
             
