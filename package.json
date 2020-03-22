@@ -1,0 +1,40 @@
+{
+  "name": "Yallah-Ride-UI",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/401-mid-project/Yallah-Ride-UI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/401-mid-project/Yallah-Ride-UI/issues"
+  },
+  "homepage": "https://github.com/401-mid-project/Yallah-Ride-UI",
+  "dependencies": {
+    "eslint": "^6.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "react": "^16.13.1",
+    "react-cookies": "^0.1.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "^3.4.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
