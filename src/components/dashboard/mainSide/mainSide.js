@@ -25,7 +25,7 @@ function MainSide() {
 
       useEffect(()=>{
           useInfo.getInfo()
-      },[])
+      },[useInfo.dataState])
 
     
     // useInfo.userData

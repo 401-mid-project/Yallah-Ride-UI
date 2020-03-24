@@ -2,10 +2,18 @@ import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
 
 import {loggerContext} from '../../contexts/logger.js';
+import {userInfoContext} from '../../contexts/userInfo.js';
 
 function InHeader() {
 
     const useLogger = useContext(loggerContext);
+    const useInfo = useContext(userInfoContext);
+
+    let handleLogout = ()=>{
+        useLogger.logOut();
+        useInfo.setDataState(false);
+
+    }
 
     return (
 
@@ -25,7 +33,7 @@ function InHeader() {
                         <Link to='/aboutUs'> AboutUs </Link>
                     </li>
                     <li>
-                        <button onClick={useLogger.logOut} > LogOut </button>
+                        <button onClick={handleLogout} > LogOut </button>
                     </li>
 
                 </ul>

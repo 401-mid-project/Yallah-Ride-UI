@@ -19,9 +19,6 @@ const SignIn= () => {
         useLogger.logIn(userName , password) ;
     }
 
-    let handleLogout = ()=>{
-        useLogger.logOut();
-    }
 
     // useEffect(()=>{
     //   useInfo.setDataState(false);
@@ -41,7 +38,6 @@ const SignIn= () => {
       <button type='submit' > LogIn </button>
     </form>
 
-    <button onClick={handleLogout}> LogOut </button>
 
     </>
   );
