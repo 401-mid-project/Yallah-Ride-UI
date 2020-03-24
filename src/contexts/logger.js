@@ -2,6 +2,7 @@ import React,{useState , useEffect} from 'react';
 import cookie from 'react-cookies';
 import jwt from 'jsonwebtoken' ;
 
+
 const API = 'http://localhost:3333';
 const SECRET = 'Shushhhhh' ;
 
@@ -16,6 +17,7 @@ function LoggerProvider(props){
 
 
 
+
     const validator = (token , id) =>{
         try{
             let userValidator = jwt.verify(token,SECRET);
@@ -26,8 +28,7 @@ function LoggerProvider(props){
         }catch(e){
             setLogState(false);
             setUserId('');
-            console.error(e)
-            console.log('catch jwt');
+            console.error('Validator Functions',e)
         }
     }
 
@@ -46,8 +47,8 @@ function LoggerProvider(props){
             let response = await output.json();
             console.log(response , typeof response)
             await validator(response.token , response.id)
-        }catch{
-            console.error('log In!')
+        }catch(e){
+            console.error(e)
         }        
     };
 
@@ -57,6 +58,8 @@ function LoggerProvider(props){
         setLogState(false);
         setUserId('');
     }
+
+    
 
 
     // to stay logged in after refresh  
@@ -68,8 +71,7 @@ function LoggerProvider(props){
 
         let token = loadToken ||qs.get('auth') || null ;
         let id = loadId || qs.get('_id') || '' ;
-
-        validator(token , id);
+            validator(token , id);
     },[])
 
 
@@ -77,11 +79,10 @@ function LoggerProvider(props){
 
 
     let keys = {logIn , logOut , logState ,userId ,validator};
-
+    
     return(
             
             <loggerContext.Provider value={keys}>
-                {console.log('==>',userId , logState)}
                 {props.children}
             </loggerContext.Provider>
     )

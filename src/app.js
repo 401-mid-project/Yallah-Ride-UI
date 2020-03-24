@@ -1,9 +1,9 @@
-import React , {useContext ,useEffect} from 'react';
+import React , {useContext} from 'react';
 import {Route , Redirect} from 'react-router-dom';
 
 //components
 import MainPage from './components/mainpage';
-import Dashboard from './components/dashboard' 
+import Dashboard from './components/dashboard' ;
 
 //contexts 
 import {loggerContext} from './contexts/logger.js';
@@ -11,12 +11,7 @@ import {loggerContext} from './contexts/logger.js';
 
 const App = ()=> {
     const useLogger = useContext(loggerContext);
-    console.log('app.js' , useLogger.logState);
-
-    useEffect(()=>{
-        let state = useLogger.logState ; 
-    })
-
+    // console.log('app.js' , useLogger.logState);
 
     return(
         <>

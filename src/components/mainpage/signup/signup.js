@@ -21,7 +21,7 @@ const SignUp = () => {
     } else {
       setPassState(true);;
     }
-  })
+  },[password , confirmPassword])
 
    let handleSubmit =(e) => {
      e.preventDefault();
@@ -78,7 +78,7 @@ const SignUp = () => {
 
   return (
     <>
-    {/*  we can't write if statement inside jsx so we do it this way*/}
+    {/*  we can't write if statement inside return so we do it this way*/}
       {message && 
       <div>
         <button onClick={() => setMessage(false)}> X </button>

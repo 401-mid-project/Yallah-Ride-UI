@@ -1,10 +1,13 @@
-import React,{useContext} from 'react'
+import React,{useContext, useEffect} from 'react'
+
 import {loggerContext} from '../../../contexts/logger.js'
+import {userInfoContext} from '../../../contexts/userInfo.js';
 
 
 const SignIn= () => {
 
-    let useLogger = useContext(loggerContext);
+    const useLogger = useContext(loggerContext);
+    const useInfo = useContext(userInfoContext);
 
     // console.log('component', useLogger)
 
@@ -19,6 +22,10 @@ const SignIn= () => {
     let handleLogout = ()=>{
         useLogger.logOut();
     }
+
+    // useEffect(()=>{
+    //   useInfo.setDataState(false);
+    // } ,[])
 
 
 
