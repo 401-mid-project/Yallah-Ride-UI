@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 //context
 import Logger from './contexts/logger.js';
 import UserInfo from './contexts/userInfo.js';
+import Poster from './contexts/poster.js';
 
 
 class Main extends React.Component {
@@ -16,6 +17,8 @@ class Main extends React.Component {
       <>
         <BrowserRouter>
 
+
+          <Poster>
           <UserInfo>
             <Logger>
 
@@ -23,6 +26,7 @@ class Main extends React.Component {
 
             </Logger>
           </UserInfo>
+          </Poster>
 
         </BrowserRouter>
       </>

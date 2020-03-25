@@ -1,38 +1,59 @@
-import React, { useContext, useEffect ,useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import cookie from 'react-cookies';
 
 
 import { userInfoContext } from '../../../contexts/userInfo.js'
+
+const API = 'http://localhost:3333';
 
 function MainSide() {
 
     // to navigate between tabs
     const useInfo = useContext(userInfoContext);
 
-    //to check password
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [passState, setPassState] = useState(true);
 
+    //to update user info every time data change
     useEffect(() => {
-
-        if (password === confirmPassword) {
-          setPassState(false);
-        } else {
-          setPassState(true);;
-        }
-      },[password, confirmPassword])
+        useInfo.getInfo()
+    }, [useInfo.dataState])
 
 
-      useEffect(()=>{
-          useInfo.getInfo()
-      },[useInfo.dataState])
+    let handleSubmit = (e)=> {
+        e.preventDefault();
 
-    
-    // useInfo.userData
-    // console.log('=====' , useInfo.dataState);
-    // if(useInfo.dataState){
-    //     var { name, firstName, lastName } = useInfo.userData.info;
-    // }
+
+        let { userName , firstName , lastName ,smoker , gender ,password } = e.target ;
+        let data = {info: {
+          name: userName.value,
+          firstName: firstName.value ,
+          lastName: lastName.value ,
+          smoker: smoker.value , 
+          gender: gender.value ,
+          password: password.value,
+        }}
+   
+        handleUpdate(data);
+    }
+
+    let handleUpdate = async(data) => {
+
+        let token = await cookie.load('auth');
+        let output = await fetch(`${API}/dashboard/update` , {
+            method:'PUT',
+            body: JSON.stringify(data) ,
+            headers: new Headers({
+                'Authorization':`Bearer ${token}`,
+                'Content-Type': 'application/json',
+            }),
+          })
+      
+          let response = await output.json();
+          useInfo.getInfo();
+          console.log('update' , response );
+    }
+
+
+
     return (
 
         <>
@@ -58,11 +79,11 @@ function MainSide() {
                             {(useInfo.userData.rides.length === 0 && useInfo.userData.drives.length === 0) && <li>No Tasks Yet!!</li>}
 
                             {useInfo.userData.rides.length > 0 && useInfo.userData.rides.map((val, idx) => {
-                                return <div key={idx}> {val} </div>
+                                return <div key={idx}> {JSON.stringify(val)} </div>
                             })}
 
                             {useInfo.userData.drives.length > 0 && useInfo.userData.drives.map((val, idx) => {
-                                return <div key={idx}> {val} </div>
+                                return <div key={idx}> {JSON.stringify(val)} </div>
                             })}
                         </section>
                     }
@@ -74,27 +95,22 @@ function MainSide() {
 
                             {
 
-                                <form>
+                                <form onSubmit={e => handleSubmit(e)}>
                                     <label>
-                                        User Name: <input name='name' defaultValue={useInfo.userData.info.name} />
+                                        User Name: <input required name='userName' defaultValue={useInfo.userData.info.name} />
                                     </label>
 
                                     <label>
-                                        First Name: <input name='firstName' defaultValue={useInfo.userData.info.firstName} />
+                                        First Name: <input required name='firstName' defaultValue={useInfo.userData.info.firstName} />
                                     </label>
                                     <label>
-                                        Last Name: <input name='lastName' defaultValue={useInfo.userData.info.lastName} />
-                                    </label>
-                                    <label>
-                                        New Password: <input required type='password' name='password' onChange={e => setPassword(e.target.value)} />
-                                    </label>
-                                    <label>
-                                        Confirm Password: <input required type='password' name='confirmPassword' onChange={e => setConfirmPassword(e.target.value)} />
+                                        Last Name: <input required name='lastName' defaultValue={useInfo.userData.info.lastName} />
                                     </label>
 
+                                    <input name='password' value={useInfo.userData.info.password} type='hidden'/>
 
                                     <label>
-                                        Smoker: <input type='checkbox' name='smoker' defaultValue='yes' />
+                                        Smoker: <input required type='checkbox' name='smoker' defaultValue='yes' />
                                     </label>
 
                                     <label>
@@ -108,7 +124,7 @@ function MainSide() {
                                         </label>
                                     </label>
 
-                                    <button type='submit' disabled={passState}> UPDATE </button>
+                                    <button type='submit'> UPDATE </button>
                                 </form>
                             }
                         </section>

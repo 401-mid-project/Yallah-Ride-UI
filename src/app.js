@@ -4,6 +4,7 @@ import {Route , Redirect} from 'react-router-dom';
 //components
 import MainPage from './components/mainpage';
 import Dashboard from './components/dashboard' ;
+import Search from './components/search';
 
 //contexts 
 import {loggerContext} from './contexts/logger.js';
@@ -23,6 +24,11 @@ const App = ()=> {
 
         <Route exact path= '/dashboard'>
         {useLogger.logState ? <Dashboard /> : <Redirect to='/' />}
+         
+        </Route>
+
+        <Route exact path= '/search'>
+        {useLogger.logState ? <Search /> : <Redirect to='/' />}
          
         </Route>
 

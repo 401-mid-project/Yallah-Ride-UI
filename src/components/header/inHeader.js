@@ -12,6 +12,7 @@ function InHeader() {
     let handleLogout = ()=>{
         useLogger.logOut();
         useInfo.setDataState(false);
+        useInfo.setCurrent('messages')
 
     }
 
