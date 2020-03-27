@@ -1,8 +1,10 @@
 import React,{useContext} from 'react';
+import cookie from 'react-cookies';
 
 import {postContext} from '../../../contexts/poster.js';
 import {userInfoContext} from '../../../contexts/userInfo.js';
 
+const API = 'http://localhost:3333';
 
 
 function AskForm(){
@@ -12,10 +14,49 @@ function AskForm(){
   console.log('lets see', useInfo.userData);
 
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+        let {location ,destination , time ,cost,userName,userId,askId , booked} = e.target ;
+
+        let data = {
+            'location':location.value,
+            'destination':destination.value,
+            'time':time.value,
+            'cost':cost.value,
+            'userName':userName.value,
+            'userId':userId.value,
+            'askId':askId.value,
+            'booked': booked.value,
+        };
+
+        // console.log('data of ask', data);
+        
+        addAsk(data)
+  }
+
+
+  const addAsk = async(data) => {
+    let token = await cookie.load('auth');
+    let output = await fetch(`${API}/search/ask` , {
+        method:'PUT',
+        body: JSON.stringify(data) ,
+        headers: new Headers({
+            'Authorization':`Bearer ${token}`,
+            'Content-Type': 'application/json',
+        }),
+      })
+  
+      let response = await output.json();
+      
+    //   console.log('ask-offer response' , response );
+      usePost.setAsk(false)
+  }
+
+
   return(
     <>
     
-    <form>
+    <form onSubmit={(e)=> handleSubmit(e)} >
         <button onClick={()=> usePost.setAsk(false)}>X</button>
         
         <label>
@@ -31,9 +72,10 @@ function AskForm(){
             cost: <input required name='cost' type='number'/> JD
         </label>
 
-        <input name='userName' type='hidden' value = {useInfo.userData.name} />
+        <input name='userName' type='hidden' value = {useInfo.userData.info.name} />
         <input name='userId' type='hidden' value = {useInfo.userData._id} />
-        <input name='askId' type='hidden' value = {useInfo.userData.rides.length + 1 } />
+        <input name='askId' type='hidden' value = {`${useInfo.userData._id} ${useInfo.userData.rides.length + 1}` } />
+        <input name='booked' value='false' type='hidden' />
 
 
         <button>Submit</button>

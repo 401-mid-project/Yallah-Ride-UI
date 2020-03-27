@@ -86,7 +86,7 @@ function OfferForm(){
 
             <input name='userName' type='hidden' value = {useInfo.userData.info.name} />
             <input name='userId' type='hidden' value = {useInfo.userData._id} />
-            <input name='offerId' type='hidden' value = {useInfo.userData.drives.length + 1 } />
+            <input name='offerId' type='hidden' value = {`${useInfo.userData._id} ${useInfo.userData.drives.length + 1}` } />
 
             <button>Submit</button>
 

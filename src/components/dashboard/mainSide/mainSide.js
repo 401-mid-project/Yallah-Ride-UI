@@ -3,6 +3,8 @@ import cookie from 'react-cookies';
 
 
 import { userInfoContext } from '../../../contexts/userInfo.js'
+import {handleAskResponse} from './main-functions.js';
+
 
 const API = 'http://localhost:3333';
 
@@ -53,7 +55,7 @@ function MainSide() {
     }
 
 
-
+    console.log('the problem' , useInfo.userData)
     return (
 
         <>
@@ -64,23 +66,54 @@ function MainSide() {
                     {useInfo.current === 'messages' &&
 
                         <section >
-                            <h2>Messages</h2>
-                            {/* {console.log(useInfo.userData.messages , 'test')} */}
-                            {useInfo.userData.messages.length > 0 && useInfo.userData.messages.map((val, idx) => {
-                                return <li key={idx}> {val} </li>
+                            <h2>Pending Requests</h2>
+                            {useInfo.userData.pendingMessages.length > 0 && useInfo.userData.pendingMessages.map((val, idx) => {
+                                return <li key={idx}> {JSON.stringify(val)} </li>
                             })}
-                            {useInfo.userData.messages.length === 0 && <li>No messages</li>}
+                            {useInfo.userData.pendingMessages.length === 0 && <li>Empty</li>}
+                       
+                            
+
+                            <h2>Messages</h2>
+                            <h2>Asks Messages:</h2>
+
+                            {useInfo.userData.askMessages.length > 0 && useInfo.userData.askMessages.map((val, idx) => {
+                                // console.log('ask object' , val);
+                                return (
+                                    <form key={idx} onSubmit={ e => handleAskResponse(e) } >
+
+                                        <li> <a href='#'>{val.userName}</a> Offered you a ride ...</li>
+                                        <li> My Ask Number:{val.askId.split(' ').pop()}</li>
+                                        <input type='hidden' name='userId' value={val.userId} />
+                                        <input type='hidden' name='askId' value={val.askId}/>
+                                        <label>
+                                        Accept <input type="radio" name="action" value="accept" checked/>
+                                        </label>
+                                        <label>
+                                        Decline <input type="radio" name="action" value="decline"/>
+                                        </label>
+                                        <button type='submit'> Send </button>
+                                    </form>
+                                )
+                                
+                                // <li key={idx}> {JSON.stringify(val)} </li>
+                            })}
+                            {useInfo.userData.askMessages.length === 0 && <li>No messages</li>}
                         </section>
                     }
 
                     {useInfo.current === 'tasks' &&
                         <section>
                             <h2>Tasks</h2>
+
+                            <h2> ASKS </h2>
                             {(useInfo.userData.rides.length === 0 && useInfo.userData.drives.length === 0) && <li>No Tasks Yet!!</li>}
 
                             {useInfo.userData.rides.length > 0 && useInfo.userData.rides.map((val, idx) => {
                                 return <div key={idx}> {JSON.stringify(val)} </div>
                             })}
+
+                            <h2> Offers </h2>
 
                             {useInfo.userData.drives.length > 0 && useInfo.userData.drives.map((val, idx) => {
                                 return <div key={idx}> {JSON.stringify(val)} </div>
