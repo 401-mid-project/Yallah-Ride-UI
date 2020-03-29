@@ -12,10 +12,9 @@ export const handleAskResponse = (e) =>{
     'askId': askId.value ,
     'action': action.value ,
   };
-  console.log('handler @@@@@' , data);
+  // console.log('handler @@@@@' , data);
   askResponse(data);
 };
-
 
 const askResponse = async(data) =>{
 
@@ -31,3 +30,35 @@ const askResponse = async(data) =>{
 
   console.log('response Done !!');
 };
+
+
+/////////////////////// offers ////////////
+
+export const handleOfferResponse = (e) =>{
+  e.preventDefault();
+
+  let {userId , offerId , action} = e.target ;
+  let data = {
+    'userId': userId.value ,
+    'offerId': offerId.value ,
+    'action': action.value ,
+  };
+  console.log('dadadada' , data);
+  offerResponse(data);
+};
+
+const offerResponse = async(data) =>{
+
+  let token = await cookie.load('auth');
+  await fetch(`${API}/offerResponse` , {
+    method:'PUT',
+    body: JSON.stringify(data) ,
+    headers: new Headers({
+      'Authorization':`Bearer ${token}`,
+      'Content-Type': 'application/json',
+    }),
+  });
+
+  console.log('response Done !!');
+};
+

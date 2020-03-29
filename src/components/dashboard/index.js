@@ -10,14 +10,11 @@ function Dashboard(){
 
 
     return(
+        
         <>
-
         <Header />
         <Left />
         <Main />
-        <h1>
-            DashBoard !!!
-        </h1>
         </>
     )
 }

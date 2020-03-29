@@ -15,7 +15,7 @@ function OfferForm(){
 
     const handleSubmit = (e)=>{
         e.preventDefault();
-        let {location ,destination , time ,cost,carType,seats,userName,userId,offerId} = e.target ;
+        let {booked , location ,destination , time ,cost,carType,seats,userName,userId,offerId} = e.target ;
 
         let data = {
             'location':location.value,
@@ -27,6 +27,7 @@ function OfferForm(){
             'userName':userName.value,
             'userId':userId.value,
             'offerId':offerId.value,
+            'booked': booked.value,
         };
 
         console.log('data of Offer', data);
@@ -73,8 +74,7 @@ function OfferForm(){
                 time: <input required name='time' type='datetime-local'/>
             </label>
             <label>
-                cost: <input required name='cost' type='number'/> JD
-                
+                cost: <input required name='cost' type='number'/> JD 
             </label>
 
             <label>
@@ -87,6 +87,7 @@ function OfferForm(){
             <input name='userName' type='hidden' value = {useInfo.userData.info.name} />
             <input name='userId' type='hidden' value = {useInfo.userData._id} />
             <input name='offerId' type='hidden' value = {`${useInfo.userData._id} ${useInfo.userData.drives.length + 1}` } />
+            <input name='booked' value='false' type='hidden' />
 
             <button>Submit</button>
 

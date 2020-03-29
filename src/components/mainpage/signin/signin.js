@@ -1,13 +1,12 @@
-import React,{useContext, useEffect} from 'react'
+import React,{useContext} from 'react'
 
 import {loggerContext} from '../../../contexts/logger.js'
-import {userInfoContext} from '../../../contexts/userInfo.js';
+// import {userInfoContext} from '../../../contexts/userInfo.js';
 
 
 const SignIn= () => {
 
     const useLogger = useContext(loggerContext);
-    const useInfo = useContext(userInfoContext);
 
     // console.log('component', useLogger)
 

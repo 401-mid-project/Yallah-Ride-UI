@@ -1,4 +1,4 @@
-import React,{useState ,useEffect} from 'react';
+import React,{useState} from 'react';
 import cookie from 'react-cookies';
 
 export const userInfoContext =  React.createContext();
@@ -47,7 +47,6 @@ function UserInfoProvider(props){
   return(
 
     <userInfoContext.Provider value={keys} >
-        {console.log('hoooooooooooal',dataState)}
         {props.children}
     </userInfoContext.Provider>
   )
