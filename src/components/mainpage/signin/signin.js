@@ -28,7 +28,18 @@ const SignIn= () => {
 
   return(
     <> 
-    <form onSubmit={handleSubmit}>
+  <div className="wrapper">
+
+    <section className="top-container">
+
+    <div className="top-box-signin">
+    
+
+
+    <div className="container">
+
+    <form className="signin" onSubmit={handleSubmit}>
+      <h1>Sign in</h1>
        <label>
         UserName: <input name='name' />
       </label>
@@ -38,7 +49,14 @@ const SignIn= () => {
       <button type='submit' > LogIn </button>
     </form>
 
+    </div>
 
+
+
+    </div> 
+    </section>
+
+  </div>
     </>
   );
 };

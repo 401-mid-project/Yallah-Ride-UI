@@ -12,10 +12,10 @@ const mainPage = ()=>{
     return(
 
         <>
-
+        
+        <Intro />
         <SignIn />
         <SignUp />
-        <Intro />
         
         </>
     )

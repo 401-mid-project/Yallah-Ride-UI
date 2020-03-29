@@ -1,0 +1,217 @@
+/* scope of root where you are not restricted to certain elements*/
+/* CSS main Variables */
+:root {
+  --primary: #ddd;
+  --dark: #333;
+  --light: #fff;
+  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--dark);
+}
+body {
+  background: #ccc;
+  /* we want the full width but still we want kind of margins */
+  margin: 30px 50px;
+  line-height: 1.4;
+}
+
+button {
+  background: var(--dark);
+  color: var(--light);
+  padding: 0.6rem 1.3rem; /* more responsive which is a multiplier for the root html font size, let's say if it 60 px then its padding 60 px * 1.3 
+  
+  (top bottom = 0.6rem /  left right = 1.3rem)
+   */ 
+  text-decoration: none;
+  border: 0;
+}
+
+/* setting the img 100% to stay into its container */
+img {
+  max-width: 100%;
+}
+
+
+/* for the wrapper that contains everything*/
+.wrapper{
+  display:grid;
+  /* to manually addign our margin */
+  grid-gap: 20px;
+}
+
+
+
+/* ******** Navigation ************* */
+
+nav ul {
+  display: grid;
+  grid-gap: 20px;
+  padding: 0;
+  list-style: none;
+  /* we have 4 links so we do 1 fractional 4 time as to seperate it this way: 
+  1fr 1fr 1fr 1fr 
+  but  ashorter way we say:
+  repeat(4, 1fr)
+  */
+  grid-template-columns: repeat(5, 1fr);
+}
+
+nav a, nav button{
+  background: var(--primary);
+  display: block;
+  text-decoration: none;
+  padding: 0.8rem;
+  text-align: center;
+  color: var(--dark);
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow);
+}
+
+nav a:hover , nav button:hover{
+  background: var(--dark);
+  color: var(--light);
+}
+
+
+/* ********* end of navigation ********* */
+
+
+
+
+/* *********** slideshow + signin + sign up ********** */
+.top-container {
+  display: grid;
+  grid-gap: 20px;
+  /* 
+    we set the grid template area 
+    we want shocase take 2 columns and 2 rows (as that grid is 2 DM and flox box 1 dm) 
+    check this image for more explanation: https://i.imgur.com/fJN5fCB.jpg
+  */
+  grid-template-areas:
+    'showcase showcase top-box-signin'
+    'showcase showcase top-box-signup';
+}
+
+/* assign our grid arrea */
+
+.showcase {
+  /* it does not know what it mean if we don't do it */
+  grid-area: showcase;
+  min-height: 400px;
+  /* background: url(https://image.freepik.com/free-vector/online-car-sharing-city-transportation-with-smartphone-app-maps-location-gps_25147-220.jpg); */
+  background-size: cover;
+  background-position: center;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+.top-box-signin {
+  grid-area: top-box-signin;
+
+}
+
+.top-box-signup {
+  grid-area: top-box-signup;
+}
+
+
+
+
+/* ******** End of slideShow ********** */
+
+
+/* /* @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800'); */
+
+.signin {
+  background: #f6f5f7;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 50vh;
+	
+}
+.signup {
+  background: #f6f5f7;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+	
+}
+ .container {
+	background-color: #fff;
+	border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 500px;
+	max-width: 100%;
+  min-height: 100px;
+  margin: 5%;
+}
+
+.signin form, .signup form {
+  background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+}
+.signin h1, .signup h1 {
+	font-weight: bold;
+  margin: 0;
+  padding: 1.2rem;
+}
+input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+}
+.signin button, .signup button {
+	border-radius: 20px;
+	border: 1px solid #fcbe4f;
+	background-color: #fcbe4f;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+.signin button:active, .signup button:active {
+	transform: scale(0.95);
+}
+
+.signin button:focus, .signup button:focus {
+	outline: none;
+}
+
+.signin button.ghost, .signup button.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
+} 

@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './app';
-
+import InHeader from './components/header/inHeader.js'
+import './style.css';
 import { BrowserRouter } from 'react-router-dom';
 
 //context
@@ -21,6 +22,8 @@ class Main extends React.Component {
           <Poster>
           <UserInfo>
             <Logger>
+
+              <InHeader></InHeader>
 
               <App />
 

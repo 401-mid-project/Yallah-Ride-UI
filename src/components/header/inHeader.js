@@ -19,7 +19,7 @@ function InHeader() {
     return (
 
         <>
-            <nav>
+            <nav className="wrapper">
                 <ul>
                     <li>
                         <Link to='/dashboard'> Dashboard </Link>
@@ -31,7 +31,7 @@ function InHeader() {
                         <Link to='/needHelp'> Need Help? </Link>
                     </li>
                     <li>
-                        <Link to='/aboutUs'> AboutUs </Link>
+                        <Link to='/aboutUs'> About Us </Link>
                     </li>
                     <li>
                         <button onClick={handleLogout} > LogOut </button>

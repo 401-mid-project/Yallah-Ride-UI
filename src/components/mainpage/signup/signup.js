@@ -86,9 +86,17 @@ const SignUp = () => {
       </div>
       }
 
+<div className="wrapper">
+{/* <div className="container"> */}
 
-      <form onSubmit = { e => handleSubmit(e)}>
+<section className="top-container">
 
+
+<div className="top-box-signup">
+
+<div className="container">
+      <form className="signup" onSubmit = { e => handleSubmit(e)}>
+        <h1>Join Us!</h1>
         <label>
           User Name: <input name='userName' />
         </label>
@@ -130,7 +138,14 @@ const SignUp = () => {
         <button type='submit' name='signUp' id='signUp' disabled={passState} > SignUp </button>
 
       </form>
+      </div>
+      </div>
 
+      </section>
+
+      </div>
+
+      {/* </div> */}
 
     </>
   );
