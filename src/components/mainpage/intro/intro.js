@@ -1,5 +1,5 @@
 import React from 'react'
-import img1 from '../../../img/img1.png'
+import img1 from '../../../img/img2.png'
 
 const intro = () => {
 
