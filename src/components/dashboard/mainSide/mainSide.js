@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import cookie from 'react-cookies';
-
-
 import { userInfoContext } from '../../../contexts/userInfo.js'
-import { handleAskResponse , handleOfferResponse} from './main-functions.js';
+import { handleAskResponse, handleOfferResponse } from './main-functions.js';
 
 
 const API = 'http://localhost:3333';
@@ -151,9 +149,9 @@ function MainSide() {
                             {useInfo.userData.offerMessages.length > 0 && useInfo.userData.offerMessages.map((val, idx) => {
                                 if (val.offerId) {
 
-                                    console.log('offers' , val)
+                                    console.log('offers', val)
                                     return (
-                                        <form key={idx} onSubmit={e => {return (handleOfferResponse(e),setButtonState(!buttonState) )} }>
+                                        <form key={idx} onSubmit={e => { return (handleOfferResponse(e), setButtonState(!buttonState)) }}>
 
                                             <li> <a href='#'>{val.userName}</a> Asked You To Share the Ride...</li>
                                             <li> My Offer Number:{val.offerId.split(' ').pop()}</li>
@@ -193,26 +191,42 @@ function MainSide() {
 
 
                     {useInfo.current === 'tasks' &&
-                        <section>
-                            <h2>My Tasks</h2>
 
-                            <h2> MY ASKS </h2>
+
+                        <section>
+
+
                             {(useInfo.userData.rides.length === 0 && useInfo.userData.drives.length === 0) && <li>No Tasks Yet!!</li>}
 
                             {useInfo.userData.rides.length > 0 && useInfo.userData.rides.map((val, idx) => {
-                                return (<fieldset key={idx}>
-                                    <legend>Ask</legend>
-                                    <a href='#'>
-                                        <p> {val.userName} </p>
-                                    </a>
-                                    <li> Destination: {val.destination} </li>
-                                    <li> Location: {val.location} </li>
-                                    <li> Time: {val.time} </li>
-                                    <li> Cost: {val.cost} JD </li>
-                                    <li>State: {val.messageState} </li>
+                                return (
+                                    <div className="card">
+                                        <div className="right">
+                                           
+                                            <div className="author">
 
-                                </fieldset>)
-                                // <div key={idx}> {JSON.stringify(val)} </div>
+                                                <img src="john.png" alt="" />
+                                                <h1 className="h1t"> <a className="Asks" href='#'>{val.userName} Asks</a> </h1>
+                                            </div>
+                                            <div className="separator"></div>
+                                            <li> <p className="p1">Destination: {val.destination}</p></li>
+                                            <li> <p className="p1">{val.time}</p></li>
+                                            <li> <p className="p1">State: {val.messageState}</p></li>
+                                        </div>
+                                        <section>
+                                         <h5>TO {val.location} </h5><h6> {val.cost} JD</h6>
+                                        </section>
+                                        
+                                        
+
+                                        <div className="fab1">
+                                            <i className="fa fa-arrow-down fa-3x"></i>
+                                        </div>
+                                    </div>
+
+
+                                    // <div key={idx}> {JSON.stringify(val)} </div>
+                                )
                             })}
 
                             <h2> Offers </h2>
@@ -231,35 +245,30 @@ function MainSide() {
                             {
 
                                 <form onSubmit={e => handleSubmit(e)}>
-                                    <label>
-                                        User Name: <input required name='userName' defaultValue={useInfo.userData.info.name} />
-                                    </label>
 
-                                    <label>
-                                        First Name: <input required name='firstName' defaultValue={useInfo.userData.info.firstName} />
-                                    </label>
-                                    <label>
-                                        Last Name: <input required name='lastName' defaultValue={useInfo.userData.info.lastName} />
-                                    </label>
+                                    <div className="input-group">
+                                        <input name='userName' placeholder="User Name" required defaultValue={useInfo.userData.info.name} />
+                                    </div>
 
-                                    <input name='password' value={useInfo.userData.info.password} type='hidden' />
+                                    <div className="input-group">
+                                        <input name='firstName' placeholder="First Name" required defaultValue={useInfo.userData.info.firstName} />
+                                    </div>
 
-                                    <label>
-                                        Smoker: <input required type='checkbox' name='smoker' defaultValue='yes' />
-                                    </label>
+                                    <div className="input-group">
+                                        <input name='lastName' placeholder="Last Name" required defaultValue={useInfo.userData.info.lastName} />
+                                    </div>
 
-                                    <label>
-                                        Gender:
-          <label>
-                                            Male: <input type='radio' name='gender' defaultValue='male' />
-                                        </label>
+                                    <div className="input-group">
+                                        <input required type='password' name='password' id='password' placeholder="Password" value={useInfo.userData.info.password} type='hidden' />
+                                    </div>
 
-                                        <label>
-                                            Female: <input type='radio' name='gender' defaultValue='female' />
-                                        </label>
-                                    </label>
+                                    <div className='input_font_color' className='divs'><a><label className='input_font_color' for="s1">Smoker </label>
+                                        <input id="s1" type='checkbox' class="switch" name='smoker' defaultValue='yes' />
+                                        &nbsp; Male <input id="r1" type='radio' name='gender' defaultValue='male' /></a><a> &nbsp;
+                                        Female  <input id="r2" type='radio' name='gender' defaultValue='female' /></a>
+                                    </div>
 
-                                    <button type='submit'> UPDATE </button>
+                                    <button className="ghost" type='submit'> UPDATE </button>
                                 </form>
                             }
                         </section>

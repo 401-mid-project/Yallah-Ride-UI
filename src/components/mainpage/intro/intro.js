@@ -8,27 +8,27 @@ const intro = () => {
 
             <div className="header">
                 <div className="inner_header">
-                    <div data-aos="fade-down-right" className="logo_container">
+                    <div className="logo_container">
                         <h1 id="h1"> Yallah<span id="offset">Ride</span></h1>
                     </div> <ul className="navigation">
-                        <a><li data-aos="fade-down" className="li">Our-Team</li></a>
-                        <a><li data-aos="fade-down-left" className="li"> Support</li></a>
-                        <a><li data-aos="fade-down-left" className="li"> AboutUs </li></a>
+                        <a><li  className="li">Our-Team</li></a>
+                        <a><li  className="li"> Support</li></a>
+                        <a><li  className="li"> AboutUs </li></a>
                     </ul>
                 </div>
             </div>
 
-            <div class="img1">
+            <div className="img1">
                 <img src={img1} alt="img1" />
             </div>
             <section className="intro_info">
-                <h1 data-aos="fade-down-right" className="title"> LOREM IPSUM </h1>
-                <h1 data-aos="fade-right">Consectetur Adipiscing Elit. </h1>
+                <h1  className="titlee"> LOREM IPSUM </h1>
+                <h1 >Consectetur Adipiscing Elit. </h1>
 
-                <hr className="line" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" color="red"/>
+                <hr className="line" color="red"/>
 
-                <h1 data-aos="fade-up-right">Sollicitudin Tincidunt </h1>
-                <p data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur accumsan lectus eu sollicitudin tincidunt. Suspendisse facilisis metus eu orci rutrum.</p>
+                <h1 >Sollicitudin Tincidunt </h1>
+                <p className="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur accumsan lectus eu sollicitudin tincidunt. Suspendisse facilisis metus eu orci rutrum.</p>
                 <a className="a_btn" href="#Sign">Join</a>
                 
                 <section id="Down" class="demo">

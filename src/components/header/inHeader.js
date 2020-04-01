@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
-
+import '../../style/header.scss';
 import {loggerContext} from '../../contexts/logger.js';
 import {userInfoContext} from '../../contexts/userInfo.js';
 
@@ -19,27 +19,19 @@ function InHeader() {
     return (
 
         <>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to='/dashboard'> Dashboard </Link>
-                    </li>
-                    <li>
-                        <Link to='/search'> Search </Link>
-                    </li>
-                    <li>
-                        <Link to='/needHelp'> Need Help? </Link>
-                    </li>
-                    <li>
-                        <Link to='/aboutUs'> AboutUs </Link>
-                    </li>
-                    <li>
-                        <button onClick={handleLogout} > LogOut </button>
-                    </li>
-
-                </ul>
-            </nav>
-
+    <div className="main_container">
+      <div className="top_navbar">
+         <ul className="menu">
+            <li><a href="#"><Link to='/dashboard'> Dashboard </Link></a></li>
+            <li><a href="#"><Link to='/Our_Team'> Our-Team </Link></a></li>
+            <li><a href="#"><Link to='/aboutUs'> AboutUs </Link></a></li>
+         </ul>
+         <ul className="right_bar">
+         <li><Link to='/search'><i className="fas fa-search"></i></Link></li>
+         <li><i className="fas fa-sign-out-alt" onClick={handleLogout}></i></li> 
+         </ul>
+      </div>
+    </div>
         </>
     )
 }

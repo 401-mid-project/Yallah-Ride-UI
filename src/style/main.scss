@@ -6,13 +6,17 @@
 
 }
 body {
-  background-image: url(https://images5.alphacoders.com/696/696837.jpg);
-  background-size: cover;
-  position: relative;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
+  // background-image: url(https://lh3.googleusercontent.com/eS6FnDwYQuzqFnqOf9Yf00--OEpF6z4I5kDD_vxGxWUjgK1P9YVYgzW8ytH9ZgaE6zPEUl9M3-w6nY3ckPmcf3ab3xRFK4Qq0Lod9EO2JL4Fsjhji37O3oIzqDpo3N_Vs6we14fsqb10SpHgFaOeB8ufFCtv2iQxzOT7oprDimdgCyzqDTC_1R7Yk3OE0Tq42KuHiLuviySUSv9x-rgnFYd_S5rlWpOwGoFZokmXASrdLdzcjWsJk2OO8zjrKKjXiSgu84YVA-6lXOjSYW4c_b5hFFeia_TH2Kp2yt_PThAq02lFg3P3L1yBrmVjfG6rctCwu8aPjAEnkxrdVrNtkZmDYhWQV3R89QHiM3WWpTveakJEeIk7AGorpRxtkwQiYggXaLreYeYwkIVOZf7qZ2N4sZa86ONZgDNrVAFsBuwSEprIcUuiIT06vLlYuX-NqwnELH8TCyfqzVvaKrBofewu-6ktbkMHxp8mRs2iyUvaem__FKxxOi7O_CAJUvIM2ALl87AUjtoZGikbnLzT9sT98JtNERQ3u-Ij1DR6qBGJZvvZoh0lZrE_3w-ulIHEaeo1ITkoThCNStr38AGJW1989UJjxL5icd0QgBfhn3MQK4MOYOAJGxOdscvQU7bSrN7kU8xsuDf9KDzfA-Fsooo7QjhfWJi37AR4BtAVaa1up8CPjRQ0atEYSNWdjQ=w1052-h657-no);
+  // background-size: cover;
+  // position: relative;
+  // background-attachment: fixed;
+  // background-position: center;
+  // background-repeat: no-repeat;
   color: white;
+  background: -webkit-linear-gradient(to right,rgb(110, 0, 0) ,rgb(223, 0, 0) );
+  background: linear-gradient(to right,rgb(92, 0, 0) ,rgb(207, 0, 0) );
+  // background: -webkit-linear-gradient(to right, rgb(255, 255, 255), rgb(110, 0, 0));
+  // background: linear-gradient(to right, rgb(255, 255, 255), rgb(92, 0, 0));
 }
 
 #root {
@@ -26,41 +30,57 @@ body {
 
 
 h1 {
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
 	font-weight: bold;
-  margin: 0;
+  margin: 2px;
   color: rgb(255, 255, 255);
 }
 
 h2 {
-	text-align: center;
+  text-align: center;
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
 }
 
-p {
+.p {
   color: rgb(255, 255, 255);
 	font-size: 14px;
 	font-weight: 100;
 	line-height: 20px;
 	letter-spacing: 0.5px;
   margin: 20px 0 30px;
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
 }
 
-span {
-	font-size: 12px;
-}
 
-a {
+.a {
 	color: rgb(255, 255, 255);
 	font-size: 14px;
 	text-decoration: none;
-	margin: 15px 0;
+  margin: 15px 0;
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
 }
 
 .input_font_color{
   color: rgb(255, 255, 255);
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
 }
 
-
-button , .a_btn {
+.a_btn{
+  background: #ff0000;
+  box-shadow: 0 0 10px #d80000, 0 0 40px #ec0000, 0 0 80px #f30000;
+  border-radius: 20px;
+	border: 1px solid rgb(230, 0, 0);
+	background-color: rgb(230, 0, 0);
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+}
+button   {
 	border-radius: 20px;
 	border: 1px solid rgb(230, 0, 0);
 	background-color: rgb(230, 0, 0);
@@ -75,16 +95,19 @@ button , .a_btn {
 }
 
 button:active , .a_btn:active {
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
 	transform: scale(0.95);
 }
 
 button:focus , .a_btn:focus {
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
 	outline: none;
 }
 
 button.ghost , .a_btn.ghost {
 	background-color: transparent;
-	border-color: #FFFFFF;
+  border-color: #FFFFFF;
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
 }
 
 form {
@@ -94,7 +117,7 @@ form {
 	flex-direction: column;
 	padding: 0 50px;
 	height: 100%;
-	text-align: center;
+  text-align: center;
 }
 
 input {
@@ -105,12 +128,14 @@ input {
   border-right: 0px;
 	padding: 12px 15px;
 	margin: 8px 0;
-	width: 100%;
+  width: 100%;
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
 }
 
 form .input-group {
   position: relative;
 }
+
 form .input-group input {
   width: 230%;
   font-size: 18px;
@@ -123,11 +148,13 @@ form .input-group input {
   position: relative;
   color: rgb(255, 255, 255);
 }
+
 ::-webkit-input-placeholder{
   color: rgb(255, 255, 255);
   font-size: 14px;
   transition: 400ms;
 }
+
 :focus::-webkit-input-placeholder{
   color: rgb(131, 131, 131);
   font: bold;
@@ -157,7 +184,7 @@ form .input-group input {
   margin-left: 5%;
 }
 
-.title{
+.titlee{
   font-size: 300%;
 }
 
@@ -166,7 +193,7 @@ form .input-group input {
   margin-left: 0%;
 }
 
-.container {
+.container{
 	border-radius: 10px;
   margin: 0px 0px 0px 10px;
 	position: relative;
@@ -260,12 +287,14 @@ form .input-group input {
 .ghost{
   color: rgb(255, 255, 255);
   transition: 500ms;
-
+  box-shadow: 0 2px 2px rgb(0, 0, 0);
 }
 
 .ghost:hover{
-  background-color: red;
-  border-color: red;
+  border-color: rgb(255, 0, 0);
+  color: #e4e4e4;
+    background: #ff0000;
+    box-shadow: 0 0 10px #d80000, 0 0 40px #ec0000, 0 0 80px #f30000;
   transition: 500ms;
 }
 .container.right-panel-active .overlay-container{
@@ -350,7 +379,7 @@ form .input-group input {
 	width: 60px;
 }
 
-  .btn{
+  .btns{
     display: inline-block;
     width: 90px;
     height: 90px;
@@ -362,16 +391,16 @@ form .input-group input {
     overflow: hidden;
     position: relative;
   }
-  .btn i{
+  .btns i{
     line-height: 90px;
     font-size: 26px;
     transition: 0.2s linear;
   }
-  .btn:hover i{
+  .btns:hover i{
     transform: scale(1.3);
     color: #ffffff;
   }
-  .btn::before{
+  .btns::before{
     content: "";
     position: absolute;
     width: 120%;
@@ -381,7 +410,7 @@ form .input-group input {
     left: -110%;
     top: 90%;
   }
-  .btn:hover::before{
+  .btns:hover::before{
     animation: aaa 0.7s 1;
     top: -10%;
     left: -10%;
@@ -552,6 +581,7 @@ form .input-group input {
   margin-left: -12px;
   border-left: 1px solid #fff;
   border-bottom: 1px solid #fff;
+  text-shadow: 0 0 10px #d8d8d8, 0 0 40px #eeeeee, 0 0 80px #f3f3f3;
   -webkit-transform: rotateZ(-45deg);
   transform: rotateZ(-45deg);
   -webkit-animation: sdb06 1.5s infinite;
@@ -617,10 +647,12 @@ form .input-group input {
   font-weight: 100;
   cursor: pointer;
   font: bold;
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
 }
 
 .logo_container h1 span{
   font-weight: 800;
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
 }
 
 .navigation{
@@ -646,6 +678,7 @@ margin-top: -10px;
   font-size: 16px;
   transition: 300ms;
 cursor: pointer;
+text-shadow: 0 2px 2px rgb(0, 0, 0);
 }
 
 .li:hover{
@@ -770,11 +803,6 @@ footer {
   color: #fff;
   bottom: 0;
   width: 90%;
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
 }
 
-section p{
-  clear: both;
-}
-section h2{
-  clear: both;
-}

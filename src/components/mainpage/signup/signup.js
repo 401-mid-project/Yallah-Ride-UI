@@ -89,39 +89,39 @@ const SignUp = () => {
 
         <form action="#" onSubmit={e => handleSubmit(e)}>
           <h1 data-aos="zoom-in-up">Create Account</h1>
-          <div class="social-container">
+          <div className="social-container">
 
-            <a data-aos="fade-right" class="btn" href="#">
-              <i class="fab fa-youtube"></i>
+            <a data-aos="fade-right" className="btns" href="#">
+              <i className="fab fa-youtube"></i>
             </a>
-            <a data-aos="fade-up-right" class="btn" href="#">
-              <i class="fab fa-twitter"></i>
+            <a data-aos="fade-up-right" className="btns" href="#">
+              <i className="fab fa-twitter"></i>
             </a>
-            <a data-aos="fade-up" class="btn" href="#">
-              <i class="fab fa-facebook-f"></i>
+            <a data-aos="fade-up" className="btns" href="#">
+              <i className="fab fa-facebook-f"></i>
             </a>
-            <a data-aos="fade-up-left" class="btn" href="#">
-              <i class="fab fa-instagram"></i>
+            <a data-aos="fade-up-left" clclassNameass="btns" href="#">
+              <i className="fab fa-instagram"></i>
             </a>
-            <a data-aos="fade-left" class="btn" href="#">
-              <i class="fab fa-google"></i>
+            <a data-aos="fade-left" className="btns" href="#">
+              <i className="fab fa-google"></i>
             </a>
 
           </div>
-          <div data-aos="zoom-in-left" class="input-group">
+          <div data-aos="zoom-in-left" className="input-group">
           <input name='userName' placeholder="User Name" required /></div>
-          <div data-aos="zoom-in-left" class="input-group">
+          <div data-aos="zoom-in-left" className="input-group">
           <input name='firstName' placeholder="First Name" required /></div>
-          <div data-aos="zoom-in-left" class="input-group">
+          <div data-aos="zoom-in-left" className="input-group">
           <input name='lastName' placeholder="Last Name" required /></div>
-          <div data-aos="zoom-in-left" class="input-group">
+          <div data-aos="zoom-in-left" className="input-group">
           <input required type='password' name='password' id='password' placeholder="Password" onChange={e => setPassword(e.target.value)} /></div>
-          <div data-aos="zoom-in-left" class="input-group">
+          <div data-aos="zoom-in-left" className="input-group">
           <input required type='password' name='confirmPassword' id='confirmPassword' placeholder="Confirm Password" onChange={e => setConfirmPassword(e.target.value)} /></div>
 
           <div className='divs'>
           <label  data-aos="fade-left" className='input_font_color' for="s1">Smoker </label>
-          <input  data-aos="fade-left" id="s1" type='checkbox' class="switch" name='smoker' value='yes' />
+          <input  data-aos="fade-left" id="s1" type='checkbox' className="switch" name='smoker' value='yes' />
           </div>
 
           <div className='input_font_color' className='divs'><a data-aos="fade-left">
@@ -134,7 +134,7 @@ const SignUp = () => {
           <label data-aos="fade-left" className='input_font_color'>I accept the Terms of Use & Privacy Policy </label>
           <input data-aos="fade-left" type="checkbox" required />
           </div>
-          <button class="ghost"  class="ghost" type='submit' name='signUp' id='signUp' disabled={passState} > SignUp </button>
+          <button className="ghost" type='submit' name='signUp' id='signUp' disabled={passState} > SignUp </button>
         </form>
       </div>
 
