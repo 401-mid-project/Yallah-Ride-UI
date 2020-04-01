@@ -22,13 +22,13 @@ const intro = () => {
                 <img src={img1} alt="img1" />
             </div>
             <section className="intro_info">
-                <h1  className="titlee"> LOREM IPSUM </h1>
-                <h1 >Consectetur Adipiscing Elit. </h1>
+                <h1  className="titlee"> YOU NEED A RIDE!!? </h1>
+                <h1 >Yallah Ride </h1>
 
                 <hr className="line" color="red"/>
 
-                <h1 >Sollicitudin Tincidunt </h1>
-                <p className="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur accumsan lectus eu sollicitudin tincidunt. Suspendisse facilisis metus eu orci rutrum.</p>
+                <h1 >Your most trusted rides </h1>
+                <p className="p">Here at Yallah Ride we are glad to connect both users who are looking for accompany and already having their own car, or the customers that are looking for a lift.</p>
                 <a className="a_btn" href="#Sign">Join</a>
                 
                 <section id="Down" class="demo">

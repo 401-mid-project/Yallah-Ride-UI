@@ -55,22 +55,22 @@ function AskForm(){
 
   return(
     <>
+
     
     <form onSubmit={(e)=> handleSubmit(e)} >
-        <button onClick={()=> usePost.setAsk(false)}>X</button>
+        <button className="ghost"  onClick={()=> usePost.setAsk(false)}>X</button>
         
-        <label>
-            location: <input required name='location' />
-        </label>
-        <label>
-            Destination: <input required name='destination'/>
-        </label>
-        <label>
-            time: <input required name='time' type='datetime-local'/>
-        </label>
-        <label>
-            cost: <input required name='cost' type='number'/> JD
-        </label>
+          <div className="input-group">
+          <input name='location' placeholder="Location" required /></div>
+
+          <div className="input-group">
+          <input name='destination' placeholder="Destination" required /></div>
+
+          <div  className="input-group-date">
+          <input name='time' placeholder="Time" type='datetime-local' required /></div>
+
+          <div className="input-group">
+          <input name='cost' placeholder="Cost" type='number' required /></div>
 
         <input name='userName' type='hidden' value = {useInfo.userData.info.name} />
         <input name='userId' type='hidden' value = {useInfo.userData._id} />
@@ -78,7 +78,7 @@ function AskForm(){
         <input name='booked' value='false' type='hidden' />
 
 
-        <button>Submit</button>
+        <button className="ghost">Submit</button>
 
     </form>
 

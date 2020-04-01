@@ -100,7 +100,7 @@ const SignUp = () => {
             <a data-aos="fade-up" className="btns" href="#">
               <i className="fab fa-facebook-f"></i>
             </a>
-            <a data-aos="fade-up-left" clclassNameass="btns" href="#">
+            <a data-aos="fade-up-left" className="btns" href="#">
               <i className="fab fa-instagram"></i>
             </a>
             <a data-aos="fade-left" className="btns" href="#">

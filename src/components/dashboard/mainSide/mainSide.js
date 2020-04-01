@@ -70,32 +70,55 @@ function MainSide() {
                             <h2>Pending Requests</h2>
                             {useInfo.userData.pendingMessages.length > 0 && useInfo.userData.pendingMessages.map((val, idx) => {
                                 if (val.askId) {
-                                    return (<fieldset key={idx}>
-                                        <legend>Ask</legend>
-                                        <a href='#'>
-                                            <p> {val.userName} </p>
-                                        </a>
-                                        <li> Destination: {val.destination} </li>
-                                        <li> Location: {val.location} </li>
-                                        <li> Time: {val.time} </li>
-                                        <li> Cost: {val.cost} JD </li>
-                                        <li>State: {val.messageState} </li>
-                                    </fieldset>)
+                                    return (<div className="card">
+                                    <div className="right">
+                                       
+                                        <div className="author">
+    
+                                        
+                                        <h1 className="h1t"> <a className="Asks" href='#'>{val.userName} Asks</a> </h1>
+                                        </div>
+                                        <div className="separator"></div>
+                                        <li> <p className="p1">Location: {val.location} </p></li>
+                                        <li> <p className="p1">{val.time}</p></li>
+                                        <li> <p className="p1">State: {val.messageState}</p></li>
+                                    </div>
+                                    <section>
+                                     <h5>TO {val.destination} </h5><h6> {val.cost} JD</h6>
+                                    </section>
+                                    
+                                    
+    
+                                    <div className="fab1">
+                                        <i className="fa fa-arrow-down fa-3x"></i>
+                                    </div>
+                                </div>)
                                 } else {
-                                    return (<fieldset key={idx}>
-                                        <legend>Offer</legend>
-                                        <a href='#'>
-                                            <p> {val.userName} </p>
-                                        </a>
-                                        <li> Destination: {val.destination} </li>
-                                        <li> Location: {val.location} </li>
-                                        <li> Time: {val.time} </li>
-                                        <li> Cost: {val.cost} JD </li>
-                                        <li>State: {val.messageState} </li>
-                                        <li>car: {val.catType} </li>
-                                        <li>seats: {val.seats} </li>
-
-                                    </fieldset>)
+                                    return (<div className="card">
+                                    <div className="right">
+                                       
+                                        <div className="author">
+    
+                                        
+                                        <h1 className="h1t"> <a className="Asks" href='#'>{val.userName} Offers</a> </h1>
+                                        </div>
+                                        <div className="separator"></div>
+                                        <li> <p className="p1">Location: {val.location} </p></li>
+                                        <li> <p className="p1">{val.time}</p></li>
+                                        <li> <p className="p1">Seats: {val.seats}</p></li>
+                                        <li> <p className="p1">Car: {val.catType}</p></li>
+                                        <li> <p className="p1">State: {val.messageState}</p></li>
+                                    </div>
+                                    <section>
+                                     <h5>TO {val.destination} </h5><h6> {val.cost} JD</h6>
+                                    </section>
+                                    
+                                    
+    
+                                    <div className="fab1">
+                                        <i className="fa fa-arrow-down fa-3x"></i>
+                                    </div>
+                                </div>)
                                 }
 
 
@@ -178,24 +201,12 @@ function MainSide() {
                                 // return <li key={idx}> {JSON.stringify(val)} </li>
                             })}
                             {useInfo.userData.offerMessages.length === 0 && <li>No messages</li>}
-
-
-
                             {/*  */}
                         </section>
                     }
 
-
-
-
-
-
                     {useInfo.current === 'tasks' &&
-
-
                         <section>
-
-
                             {(useInfo.userData.rides.length === 0 && useInfo.userData.drives.length === 0) && <li>No Tasks Yet!!</li>}
 
                             {useInfo.userData.rides.length > 0 && useInfo.userData.rides.map((val, idx) => {
@@ -205,16 +216,16 @@ function MainSide() {
                                            
                                             <div className="author">
 
-                                                <img src="john.png" alt="" />
-                                                <h1 className="h1t"> <a className="Asks" href='#'>{val.userName} Asks</a> </h1>
+                                            
+                                            <h1 className="h1t"> <a className="Asks" href='#'>{val.userName} Asks</a> </h1>
                                             </div>
                                             <div className="separator"></div>
-                                            <li> <p className="p1">Destination: {val.destination}</p></li>
+                                            <li> <p className="p1">Location: {val.location}</p></li>
                                             <li> <p className="p1">{val.time}</p></li>
                                             <li> <p className="p1">State: {val.messageState}</p></li>
                                         </div>
                                         <section>
-                                         <h5>TO {val.location} </h5><h6> {val.cost} JD</h6>
+                                         <h5>TO {val.destination} </h5><h6> {val.cost} JD</h6>
                                         </section>
                                         
                                         
@@ -229,10 +240,33 @@ function MainSide() {
                                 )
                             })}
 
-                            <h2> Offers </h2>
 
                             {useInfo.userData.drives.length > 0 && useInfo.userData.drives.map((val, idx) => {
-                                return <div key={idx}> {JSON.stringify(val)} </div>
+                                return (<div className="card">
+                                <div className="right">
+                                   
+                                    <div className="author">
+
+                                    
+                                    <h1 className="h1t"> <a className="Asks" href='#'>{val.userName} Offers</a> </h1>
+                                    </div>
+                                    <div className="separator"></div>
+                                    <li> <p className="p1">Location: {val.location}</p></li>
+                                    <li> <p className="p1">{val.time}</p></li>
+                                    <li> <p className="p1">State: {val.messageState}</p></li>
+                                    <li> <p className="p1">Car: {val.catType}</p></li>
+                                    <li> <p className="p1">Seats: {val.seats}</p></li>
+                                </div>
+                                <section>
+                                 <h5>TO {val.destination} </h5><h6> {val.cost} JD</h6>
+                                </section>
+                                
+                                
+
+                                <div className="fab1">
+                                    <i className="fa fa-arrow-down fa-3x"></i>
+                                </div>
+                            </div>)
                             })}
                         </section>
                     }

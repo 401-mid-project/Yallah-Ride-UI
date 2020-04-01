@@ -32,6 +32,7 @@ function Search(){
         </div>
     </div>
             <Poster />
+            
             <Render />
         </>
     )

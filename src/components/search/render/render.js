@@ -52,8 +52,7 @@ function Render() {
 
     return (
         <>
-            <section>
-                <h2>Asks</h2>
+            <section class="row">
                 {rides.map((val, idx) => {
                     // console.log( 'each ASK:',val)
                     // console.log('@@@@@@' , val.booked)
@@ -61,20 +60,21 @@ function Render() {
                         // console.log('wtf1111' , useInfo.userData._id)
                         // console.log('wtf2222' , val.userId)
                         return (
+                            <form class="columnR" key={idx} onSubmit={e => { return (HandleAsk(e), setUseButton(!useButton)) }} >
 
-                            <form key={idx} onSubmit={e => { return (HandleAsk(e), setUseButton(!useButton)) }} >
-
-                                <fieldset>
-                                    <legend>Ask</legend>
-                                    <a href='#'>
-                                        <img src='https://icons.iconarchive.com/icons/iconsmind/outline/256/Lock-User-icon.png'></img>
-                                        <p> {val.userName} </p>
-                                    </a>
-                                    <li> Destination: {val.destination} </li>
-                                    <li> Location: {val.location} </li>
-                                    <li> Time: {val.time} </li>
-                                    <li> Cost: {val.cost} JD </li>
-                                </fieldset>
+                            <div class="box S">
+                                    <div class="date">
+                                        <h4>{val.userName}</h4>
+                                        <h4>{val.time}</h4><h4>TO {val.destination} </h4>
+                                    </div>
+                                    <h1>Asks</h1>
+                                        <div class="date">
+                                        <h4> Cost: {val.cost} JD </h4>
+                                        <h4> Location: {val.location}</h4>
+                                        <h4> Car: {val.catType} </h4>
+                                        <h4> seats: {val.seats} </h4>
+                                    </div>
+                                </div>
                                 <input type='hidden' name='userId' value={val.userId} />
                                 <input type='hidden' name='askId' value={val.askId} />
                                 <input type='hidden' name='userName' value={val.userName} />
@@ -95,29 +95,30 @@ function Render() {
                     }
                 })}
             </section>
-
-            <section>
-                <h2>Offer</h2>
+            
+            <section class="row">
                 {drives.map((val, idx) => {
                     if (val.booked !== 'true') {
 
                         console.log('each offer', val.catType)
                         return (
-                            <form key={idx} onSubmit={e => { return (HandleOffer(e), setUseButton(!useButton)) }} >
+                            <form class="columnR" key={idx} onSubmit={e => { return (HandleOffer(e), setUseButton(!useButton)) }} >
 
-                                <fieldset>
-                                    <legend>Offer</legend>
-                                    <a href='#'>
-                                        <img src='https://icons.iconarchive.com/icons/iconsmind/outline/256/Lock-User-icon.png'></img>
-                                        <p> {val.userName} </p>
-                                    </a>
-                                    <li> Destination: {val.destination} </li>
-                                    <li> Location: {val.location} </li>
-                                    <li> Time: {val.time} </li>
-                                    <li> Cost: {val.cost} JD </li>
-                                    <li> Car: {val.catType} </li>
-                                    <li> seats: {val.seats} </li>
-                                </fieldset>
+
+                                    <div class="box R">
+                                    <div class="date">
+                                        <h4>{val.userName}</h4>
+                                        <h4>{val.time}</h4><h4>TO {val.destination}</h4>
+                                    </div>
+                                    <h1>Offer</h1>
+                                        <div class="date">
+                                        <h4> Cost: {val.cost} JD </h4>
+                                        <h4> Location: {val.location}</h4>
+                                        <h4> Car: {val.catType} </h4>
+                                        <h4> seats: {val.seats} </h4>
+                                    </div>
+                                </div>
+
                                 <input type='hidden' name='userId' value={val.userId} />
                                 <input type='hidden' name='offerId' value={val.offerId} />
                                 <input type='hidden' name='userName' value={val.userName} />
@@ -126,7 +127,6 @@ function Render() {
                                 <input type='hidden' name='time' value={val.time} />
                                 <input type='hidden' name='cost' value={val.cost} />
                                 <input type='hidden' name='booked' value={val.booked} />
-
                                 <input type='hidden' name='catType' value={val.catType} />
                                 <input type='hidden' name='seats' value={val.seats} />
 
@@ -134,10 +134,8 @@ function Render() {
                                     useInfo.userData.pendingMessages.filter(message => message.askId === val.askId).length === 0
                                     && useInfo.userData._id !== val.userId &&
                                     <button type='submit' > Request </button>
-                                }
+                                }  
                             </form>
-
-
                             // <div key={idx}> {JSON.stringify(val)} </div>
                         )
                     }

@@ -60,36 +60,42 @@ function OfferForm(){
 
     return(
         <>
+
+          
+
+          
+
+          
+
+          
         
         <form onSubmit={(e)=> handleSubmit(e)}>
-            <button onClick={()=> usePost.setOffer(false)}>X</button>
+            <button className="ghost"  onClick={()=> usePost.setOffer(false)}>X</button>
             
-            <label>
-                location: <input required name='location' />
-            </label>
-            <label>
-                Destination: <input required name='destination'/>
-            </label>
-            <label>
-                time: <input required name='time' type='datetime-local'/>
-            </label>
-            <label>
-                cost: <input required name='cost' type='number'/> JD 
-            </label>
+            <div className="input-group">
+          <input name='location' placeholder="Location" required /></div>
 
-            <label>
-                carType: <input required name='carType' />
-            </label>
-            <label>
-                seats: <input required name='seats' type='number'/>
-            </label>
+          <div className="input-group">
+          <input name='destination' placeholder="Destination" required /></div>
+
+          <div className="input-group-date">
+          <input name='time' placeholder="Time" type='datetime-local' required /></div>
+
+          <div className="input-group">
+          <input name='cost' placeholder="Cost" type='number' required /></div>
+
+          <div className="input-group">
+          <input name='carType' placeholder="Car Type" required /></div>
+
+          <div className="input-group">
+          <input name='seats' placeholder="Seats" required /></div>
 
             <input name='userName' type='hidden' value = {useInfo.userData.info.name} />
             <input name='userId' type='hidden' value = {useInfo.userData._id} />
             <input name='offerId' type='hidden' value = {`${useInfo.userData._id} ${useInfo.userData.drives.length + 1}` } />
             <input name='booked' value='false' type='hidden' />
 
-            <button>Submit</button>
+            <button className="ghost">Submit</button>
 
         </form>
 
