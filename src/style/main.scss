@@ -6,7 +6,7 @@
 
 }
 body {
-  background-image: url(https://images5.alphacoders.com/696/696837.jpg);
+  background-image: url(../img/pexels-photo-1095126.jpeg);
   background-size: cover;
   position: relative;
   background-attachment: fixed;
@@ -27,8 +27,8 @@ body {
 
 h1 {
 	font-weight: bold;
-  margin: 0;
-  color: rgb(255, 255, 255);
+  margin: 30px;
+  color: #031437e1;
 }
 
 h2 {
@@ -36,12 +36,12 @@ h2 {
 }
 
 p {
-  color: rgb(255, 255, 255);
+  color: #031437d8;
 	font-size: 14px;
 	font-weight: 100;
 	line-height: 20px;
 	letter-spacing: 0.5px;
-  margin: 20px 0 30px;
+  margin: 20px 30px 30px;
 }
 
 span {
@@ -62,8 +62,8 @@ a {
 
 button , .a_btn {
 	border-radius: 20px;
-	border: 1px solid rgb(230, 0, 0);
-	background-color: rgb(230, 0, 0);
+	border: 1px solid #8ba81c;
+	background-color: #8ba81c;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -72,6 +72,7 @@ button , .a_btn {
 	text-transform: uppercase;
   transition: transform 80ms ease-in;
   cursor: pointer;
+  margin-left: 2%;
 }
 
 button:active , .a_btn:active {
@@ -99,7 +100,7 @@ form {
 
 input {
   background-color: rgba(250, 250, 250, 0);
-  border-bottom: 1px solid rgb(230, 0, 0);
+  border-bottom: 1px solid #8ba81c;
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;
@@ -163,7 +164,7 @@ form .input-group input {
 
 .line{
   width: 90%;
-  margin-left: 0%;
+  margin-left: 5%;
 }
 
 .container {
@@ -264,8 +265,8 @@ form .input-group input {
 }
 
 .ghost:hover{
-  background-color: red;
-  border-color: red;
+  background-color: #8ba81c;
+  border-color: #8ba81c;
   transition: 500ms;
 }
 .container.right-panel-active .overlay-container{
@@ -358,7 +359,7 @@ form .input-group input {
     margin: 10px;
     border-radius: 30%;
     box-shadow: 0 5px 15px -5px #00000070;
-    color: #ff0000;
+    color: #8ba81c;
     overflow: hidden;
     position: relative;
   }
@@ -376,7 +377,7 @@ form .input-group input {
     position: absolute;
     width: 120%;
     height: 120%;
-    background: #ff0000;
+    background: #8ba81c;
     transform: rotate(45deg);
     left: -110%;
     top: 90%;
@@ -603,13 +604,13 @@ form .input-group input {
 }
 
 .logo_container{
-  height: 100%;
+  height: 150%;
   display: table;
   float: left;
 }
 
 .logo_container h1 {
-  color: rgb(255, 255, 255);
+  color: #010a1b;
   height: 100%;
   display: table-cell;
   vertical-align: middle;
@@ -637,24 +638,39 @@ margin-top: -10px;
 }
 
 
-.li{
+.li , .li a{
   display: table-cell;
   vertical-align: middle;
   height: 100%;
-  color: rgb(255, 255, 255);
+  color: #010a1b;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 16px;
   transition: 300ms;
 cursor: pointer;
+margin-top: 50px;
+
+}
+.li button{
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+  color: #010a1b;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+  transition: 300ms;
+cursor: pointer;
+margin-top: 40px;
+
 }
 
-.li:hover{
+.li a:hover{
   color: rgb(255, 255, 255);
   text-shadow: 0px 0px 50px rgb(255, 255, 255);
   transition: 300ms;
   cursor: pointer;
 
 }
+
 
 
 #h1 {

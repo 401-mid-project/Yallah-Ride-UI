@@ -3,6 +3,7 @@ import '../../main.js';
 import SignIn from './signin/signin.js';
 import SignUp from './signup/signup.js';
 import Intro from './intro/intro.js';
+import InHeader from '../header/inHeader.js'
 import '../../style/main.scss';
 
 
@@ -12,6 +13,7 @@ const mainPage = ()=>{
     return(
 
         <>
+   
                 <Intro />
             <div class="container" id="container">
                 <div class="overlay-container">

@@ -22,6 +22,7 @@ class Main extends React.Component {
           <UserInfo>
             <Logger>
 
+              
               <App />
 
             </Logger>

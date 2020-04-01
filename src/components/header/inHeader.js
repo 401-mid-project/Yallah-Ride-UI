@@ -20,22 +20,29 @@ function InHeader() {
 
         <>
             <nav>
-                <ul>
-                    <li>
+<ul>                        
+                      
+                        <a><li data-aos="fade-down" className="li">
                         <Link to='/dashboard'> Dashboard </Link>
-                    </li>
-                    <li>
+                    </li></a>
+
+                    <a><li data-aos="fade-down-left" className="li">
                         <Link to='/search'> Search </Link>
-                    </li>
-                    <li>
+                    </li></a>
+
+
+                    <a><li data-aos="fade-down-left" className="li">
                         <Link to='/needHelp'> Need Help? </Link>
-                    </li>
-                    <li>
+                    </li></a>
+
+                    <a><li data-aos="fade-down-left" className="li">
                         <Link to='/aboutUs'> AboutUs </Link>
-                    </li>
-                    <li>
+                    </li></a>
+
+
+                    <a><li data-aos="fade-down-left" className="li">
                         <button onClick={handleLogout} > LogOut </button>
-                    </li>
+                    </li></a>
 
                 </ul>
             </nav>
