@@ -6,13 +6,12 @@ import Intro from './intro/intro.js';
 import '../../style/main.scss';
 
 
+const mainPage = () => {
 
-const mainPage = ()=>{
-
-    return(
+    return (
 
         <>
-                <Intro />
+            <Intro />
             <div className="container" id="container">
                 <div className="overlay-container">
                     <div className="overlay">
@@ -32,13 +31,13 @@ const mainPage = ()=>{
                 <SignUp />
             </div>
             <footer>
-      <a>Yallah Ride 2020	&copy; </a>
-      <a>WWW.YallahRide.com</a>
-    </footer>
-        
+                <a>Yallah Ride 2020	&copy; </a>
+                <a>WWW.YallahRide.com</a>
+            </footer>
+
         </>
     )
-} 
+}
 
 
-export default mainPage ;
+export default mainPage;

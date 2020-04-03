@@ -32,15 +32,7 @@ function UserInfoProvider(props){
     let response = await output.json()
     await setUserData(response);
     await setDataState(true);
-
-    // console.log(response);
   }
-
-
-//   useEffect(()=>{
-//       getInfo();
-//   },[]);
-
 
   let keys = {current , setCurrent , getInfo , userData , dataState ,setDataState};
 

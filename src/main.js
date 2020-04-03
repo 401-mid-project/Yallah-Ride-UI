@@ -11,4 +11,5 @@ window.onload=function(){
 
   signInButton.addEventListener('click', () => {
     container.classList.remove('right-panel-active');
-  }); };
+  }); 
+};

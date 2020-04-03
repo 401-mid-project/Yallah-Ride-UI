@@ -44,23 +44,13 @@ function Render() {
         getData();
 
     }, [usePost.offer, usePost.ask, useButton]);
-
-
-
-
-
-
     return (
         <>
             <section class="row">
                 {rides.map((val, idx) => {
-                    // console.log( 'each ASK:',val)
-                    // console.log('@@@@@@' , val.booked)
                     if (val.booked !== 'true') {
-                        // console.log('wtf1111' , useInfo.userData._id)
-                        // console.log('wtf2222' , val.userId)
                         return (
-                            <form class="columnR" key={idx} onSubmit={e => { return (HandleAsk(e), setUseButton(!useButton)) }} >
+                            <form className="form1" class="columnR" key={idx} onSubmit={e => { return (HandleAsk(e), setUseButton(!useButton)) }} >
 
                             <div class="box S">
                                     <div class="date">
@@ -102,7 +92,7 @@ function Render() {
 
                         console.log('each offer', val.catType)
                         return (
-                            <form class="columnR" key={idx} onSubmit={e => { return (HandleOffer(e), setUseButton(!useButton)) }} >
+                            <form className="form1" class="columnR" key={idx} onSubmit={e => { return (HandleOffer(e), setUseButton(!useButton)) }} >
 
 
                                     <div class="box R">
@@ -136,7 +126,6 @@ function Render() {
                                     <button type='submit' > Request </button>
                                 }  
                             </form>
-                            // <div key={idx}> {JSON.stringify(val)} </div>
                         )
                     }
                 })}

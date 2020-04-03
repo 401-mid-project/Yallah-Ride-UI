@@ -74,10 +74,7 @@ const sendOffer = async(message) => {
       'Authorization':`Bearer ${token}`,
       'Content-Type': 'application/json',
     }),
-  });
-      
-  //   let response = await output.json();
-          
+  });          
   console.log('sent !!!!!!');
 };
 
