@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import cookie from 'react-cookies';
 import { userInfoContext } from '../../../contexts/userInfo.js'
 import { handleAskResponse, handleOfferResponse } from './main-functions.js';
+import imgMyTasks from '../../../img/12.jpg';
+import imgMyTasks2 from '../../../img/11.jpg';
 
 
 const API = 'http://localhost:3333';
@@ -67,44 +69,40 @@ function MainSide() {
                                     return (<div className="cardx">
                                         <div className="right">
                                             <div className="author">
-                                                <h1 className="h1t"> <a className="Asks" href='#'>{val.userName} Asks</a> </h1>
+                                            <li> <p className="timee">{val.time}</p></li>
+                                                <h1 className="h1t"> <a className="Asks" href='#'>TO {val.destination}</a> </h1>
                                             </div>
                                             <div className="separator"></div>
-                                            <li> <p className="p1">Location: {val.location} </p></li>
-                                            <li> <p className="p1">{val.time}</p></li>
-                                            <li> <p className="p1">State: {val.messageState}</p></li>
+                                            <li> <p className="p1">The Payment will be {val.cost} JD </p></li>
+                                            <li> <p className="p1">The State is {val.messageState}</p></li>
                                         </div>
                                         <section>
-                                            <h5>TO {val.destination} </h5><h6> {val.cost} JD</h6>
+                                            <h5>{val.userName} Ask </h5><h6>From {val.location}</h6>
                                         </section>
-                                        <div className="fab1">
-                                            <i className="fa fa-arrow-down fa-3x"></i>
-                                        </div>
+                                        <img className="fab1" src="https://www.monro.com/wp-content/uploads/2019/09/service-tires-balance.png" />
                                     </div>)
                                 } else {
                                     return (<div className="cardx">
                                         <div className="right">
                                             <div className="author">
-                                                <h1 className="h1t"> <a className="Asks" href='#'>{val.userName} Offers</a> </h1>
+                                            <li> <p className="timee">{val.time}</p></li>
+                                                <h1 className="h1t"> <a className="Asks" href='#'>TO {val.destination}</a> </h1>
                                             </div>
                                             <div className="separator"></div>
-                                            <li> <p className="p1">Location: {val.location} </p></li>
-                                            <li> <p className="p1">{val.time}</p></li>
-                                            <li> <p className="p1">Seats: {val.seats}</p></li>
-                                            <li> <p className="p1">Car: {val.catType}</p></li>
-                                            <li> <p className="p1">State: {val.messageState}</p></li>
+                                            <li> <p className="p1">The Cost will be {val.cost} JD </p></li>
+                                            <li> <p className="p1">Available Seats  {val.seats} </p></li>
+                                            <li> <p className="p1">His Car Type {val.catType}</p></li>
+                                            <li> <p className="p1">The State is {val.messageState}</p></li>
                                         </div>
                                         <section>
-                                            <h5>TO {val.destination} </h5><h6> {val.cost} JD</h6>
+                                            <h5>{val.userName} Offer </h5><h6> From {val.location}</h6>
                                         </section>
-                                        <div className="fab1">
-                                            <i className="fa fa-arrow-down fa-3x"></i>
-                                        </div>
+                                        <img className="fab1" src="https://www.monro.com/wp-content/uploads/2019/09/service-tires-balance.png" />
                                     </div>
                                     )
                                 }
                             })}
-                            {useInfo.userData.pendingMessages.length === 0 && <li>Empty</li>}
+                            {useInfo.userData.pendingMessages.length === 0 && <li>Empty</li>}<section className="D-boo">
                             {useInfo.userData.askMessages.length > 0 && useInfo.userData.askMessages.map((val, idx) => {
                                 console.log('ask object', val);
                                 if (val.askId) {
@@ -119,16 +117,16 @@ function MainSide() {
                                                         {val.booked !== 'true' &&
                                                             <>
                                                                 <label>
-                                                                    Accept <input type="radio" name="action" value="accept" defaultChecked />
+                                                                    Accept <input type="radio" name="action" value="accept" defaultChecked />&nbsp;&nbsp;
                                                                 </label>
                                                                 <label>
-                                                                    Decline <input type="radio" name="action" value="decline" />
+                                                                &nbsp;&nbsp; Decline <input type="radio" name="action" value="decline" />
                                                                 </label>
                                                             </>
                                                         }</p>
                                                         <h4> <span>
                                                             {val.booked === 'true' && <li> Booked !!</li>}
-                                                            {val.booked !== 'true' && <button type='submit'> Send </button>} </span></h4>
+                                                            {val.booked !== 'true' && <button className="button-send" type='submit'> Send </button>} </span></h4>
                                                     </figcaption>
                                                 </figure></a>
                                         </form>
@@ -148,10 +146,10 @@ function MainSide() {
                                                     {val.booked !== 'true' &&
                                                         <>
                                                             <label>
-                                                                Accept <input type="radio" name="action" value="accept" defaultChecked />
+                                                                Accept <input type="radio" name="action" value="accept" defaultChecked />&nbsp;&nbsp;
                                                             </label>
                                                             <label>
-                                                                Decline <input type="radio" name="action" value="decline" />
+                                                            &nbsp;&nbsp;  Decline <input type="radio" name="action" value="decline" />
                                                             </label>
                                                         </>
                                                     }</p>
@@ -163,9 +161,10 @@ function MainSide() {
                                     </form>
                                     )
                                 }
-                            })}
+                            })}</section>
                             {useInfo.userData.offerMessages.length === 0 && <li>No messages</li>}
                         </section>
+                        
                     }
                     {useInfo.current === 'tasks' &&
                         <section>
@@ -176,20 +175,19 @@ function MainSide() {
                                     <div class="containerc">
                                         <div class="card">
                                             <div class="card__image-container">
-                                                <img class="card__image" src="https://lh3.googleusercontent.com/R_bkzuTCHuLEceboxp-nboQk8viruGGETXouQ1xR_S8AWHOpf8Xuw-N4X8YZoZOhxuLzW9iQCWVbiEowmlMF7zJDZyZvlQZU54VWbRqY5grvCx_00jB648GCxZ7-sdYv_qguadVCi69LEf20VrXxxI8OAzPPRLp3Jx7bzppFqhgK7QDJJnFttckZaUd2_Ctub477tDYlDCl294MemyQaXYQv2Idm2WSe2pffHvvrmJvoYU6HzDZTtUuWEmuJPQN1_u4h8jnYE2zNFyEkDCC2uHHbe8iqXqC8nmC1cchQSiBe6On0SeFrYGcHQc5kQBaDECRzFgewBjIf-U6P9DyYelc6F_Ph1kyXReKjw-5J6egwCLc-vx6VxnngpS619bXY1QDzddHAyww8EXeyo5U2t4YYU_pM600lQ1AibwvHpTddj5j7-AzgpwYuSPh970z6A87wWFkxWij6JbKFY5O6GZtyOs8uxLWtzsyOFE4A2CZhGxMUf798Sjn7LUJ_UPlcwCJQ4dcYN6vol5XqvoKXaWKBxvZsGtiKREc25i4zb6351qLw3JKHE5uK2EB2NgvNhQeeZKhpkK_bl8N-xs8EP9SEkPxU158zACeqPbs9hc7faDSjJKoa7fRxhg1nUVGznHjoUmDOKyeKznmjD5i6iUOIVgUEyPq3X8c4sIz-5ee_7HN34F_ASNm5uXPCUg=w822-h657-no" alt="" />
+                                                <img class="card__image" src={imgMyTasks2} alt="" />
                                             </div>
-                                            <svg class="card__svg" viewBox="0 0 800 500">
+                                            <svg  class="card__svg" viewBox="0 0 800 500">
 
-                                                <path d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#333" />
+                                                <path  d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#333" />
                                                 <path class="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="pink" stroke-width="3" fill="transparent" />
                                             </svg>
                                             <div class="card__content">
                                                 <h1 class="card__title">{val.userName} Asks</h1>
-                                                <h3 >{val.time}</h3>
-                                                <h3 >Location: {val.location}</h3>
-                                                <p >TO {val.destination}
-                                                </p>
-                                                <h3 class="details">Cost: {val.cost} JD</h3>
+                                                <h3 >For a Ride From {val.location} TO {val.destination}</h3>
+                                                <h3 > at {val.time}</h3>
+                                                
+                                                <h3 class="details">and the payment will be {val.cost} JD</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -199,9 +197,9 @@ function MainSide() {
                                 return (
                                     <div class="containerc">
 
-                                        <div class="card">
+                                        <div class="cardMT">
                                             <div class="card__image-container">
-                                                <img class="card__image" src="https://lh3.googleusercontent.com/R_bkzuTCHuLEceboxp-nboQk8viruGGETXouQ1xR_S8AWHOpf8Xuw-N4X8YZoZOhxuLzW9iQCWVbiEowmlMF7zJDZyZvlQZU54VWbRqY5grvCx_00jB648GCxZ7-sdYv_qguadVCi69LEf20VrXxxI8OAzPPRLp3Jx7bzppFqhgK7QDJJnFttckZaUd2_Ctub477tDYlDCl294MemyQaXYQv2Idm2WSe2pffHvvrmJvoYU6HzDZTtUuWEmuJPQN1_u4h8jnYE2zNFyEkDCC2uHHbe8iqXqC8nmC1cchQSiBe6On0SeFrYGcHQc5kQBaDECRzFgewBjIf-U6P9DyYelc6F_Ph1kyXReKjw-5J6egwCLc-vx6VxnngpS619bXY1QDzddHAyww8EXeyo5U2t4YYU_pM600lQ1AibwvHpTddj5j7-AzgpwYuSPh970z6A87wWFkxWij6JbKFY5O6GZtyOs8uxLWtzsyOFE4A2CZhGxMUf798Sjn7LUJ_UPlcwCJQ4dcYN6vol5XqvoKXaWKBxvZsGtiKREc25i4zb6351qLw3JKHE5uK2EB2NgvNhQeeZKhpkK_bl8N-xs8EP9SEkPxU158zACeqPbs9hc7faDSjJKoa7fRxhg1nUVGznHjoUmDOKyeKznmjD5i6iUOIVgUEyPq3X8c4sIz-5ee_7HN34F_ASNm5uXPCUg=w822-h657-no" alt="" />
+                                                <img class="card__image" src={imgMyTasks} alt="" />
                                             </div>
 
                                             <svg class="card__svg" viewBox="0 0 800 500">
@@ -211,14 +209,12 @@ function MainSide() {
                                             </svg>
 
                                             <div class="card__content">
-                                                <h1 class="card__title">{val.userName} Offers</h1>
-                                                <h3 >{val.time}</h3>
-                                                <h3 >Location: {val.location}</h3>
-                                                <h3 class="card__title">Car: {val.catType}</h3>
-                                                <h3 class="card__title">Seats: {val.seats}</h3>
-                                                <p >TO {val.destination}
-                                                </p>
-                                                <h3 class="details">Cost: {val.cost} JD</h3>
+                                                <h1 class="card__title">{val.userName} Offer </h1>
+                                                <h3 >a Ride to Share From {val.location} TO {val.destination}</h3>
+                                                <h3 >at {val.time}</h3>
+                                                <h3 class="card__title">The Car Will Be {val.catType}</h3>
+                                                <h3 class="card__title">And Have {val.seats} Seats Available </h3>
+                                                <h3 class="details">The Cost will be {val.cost} JD </h3>
                                             </div>
                                         </div></div>
                                 )

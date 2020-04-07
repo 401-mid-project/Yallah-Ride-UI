@@ -3,7 +3,9 @@ scroll-behavior: smooth;
 }
 
 body {
-  background-image: url(https://lh3.googleusercontent.com/17y8rvqNMMkNhT90LxthqkEqQc9zFpsyO1aqolGkPllRKn0FLe1e08uix65lUDfcDYiT3QfPw7GrAlouf3bOAIT7shlSzCR6KqvghFILP6m_dpzD0ZCbRiJSfM1aLOL8aZjV1Z14wOKDeWuvxI5kqFGNNfFc0at71kcNBMWDRv2JjqLnqZmYmDdFnPJz7rg4BIhVeG3BAnbXk6bxRE1-nadN32NtipE3JpYGeQQaKoOBYDxDEKJQeyYEdGhX5Z1RZ9iV4Rj6zLzHdQM0bdq7NJqwVB_HPMh6y6TfNrJTNMQBSmyhTDWnNKrWpjMl40ka0QtjZIVWuRtz5M6dKyQikzBtR1kg9FinRja6XqGKBm_44wXaupYDkBrXhLPzY2R2QXcKqfADlG2F4X-Kfgzdg-AsGIfW6yc378FA8tU2dRxTm0Zz7aJNYyW_fBIE5FwK8XoF2QXCWHJrP05fy7zCSeN7B7_sY7h_MuDiXs4BS5ItFlqYQmfhvSZk7YSTVQbZfNBX74UvPjj21Sa4IhYT2bLYKZIrHT8xIco28JkpZoBak8YpQYuODSsv26VP68PKL4KPCJJAboPNmiYFtCqJW0klEnRjUFxd8OZDbp3vhbwtqpmRJiXt8mslPpsAWIt4oxnaLmwHhiB6KSKvU_2zwEPJput2GDsRsIU_Ai2s_7begNg5rz-PyWzHc3c4NQ=w986-h657-no);
+  // background: -webkit-linear-gradient(to right,rgb(0, 0, 0) ,rgb(160, 0, 0) );
+  // background: linear-gradient(to right,rgb(0, 0, 0) ,rgb(161, 0, 0) );
+  background-image: url('../img/backx.jpg');
   background-size: cover;
   position: relative;
   background-attachment: fixed;
@@ -31,6 +33,10 @@ h2 {
   text-align: center;
 }
 
+h3{
+  font-size: 18px;
+  font-family: 'Rajdhani', sans-serif;
+}
 .p {
   color: rgb(255, 255, 255);
 	font-size: 14px;
@@ -69,16 +75,21 @@ h2 {
 }
 button   {
 	border-radius: 20px;
-	border: 1px solid rgb(230, 0, 0);
-	background-color: rgb(230, 0, 0);
+	border: 1px solid rgba(255, 255, 255, 0.472);
+	background-color: rgba(230, 0, 0, 0);
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
-	padding: 12px 45px;
+	padding: 12px 30px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-  transition: transform 80ms ease-in;
+  // transition: transform 80ms ease-in;
   cursor: pointer;
+}
+button:hover{
+  background-color: rgb(51, 255, 0);
+  box-shadow: 0 0 10px #3dd800, 0 0 40px #23ec00, 0 0 80px #31f300;
+  transition: 400ms;
 }
 
 button:active , .a_btn:active {
@@ -333,7 +344,7 @@ form .input-group1 input  {
   border-color: rgb(255, 0, 0);
   color: #e4e4e4;
   background: #ff0000;
-  box-shadow: 0 0 10px #d80000, 0 0 40px #ec0000, 0 0 80px #f30000;
+  box-shadow: 0 0 10px #d80000, 0 0 40px #ec0000;
   transition: 500ms;
 }
 .container.right-panel-active .overlay-container{

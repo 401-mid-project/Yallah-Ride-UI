@@ -63,6 +63,9 @@ function AskForm() {
         <div className="input-group1">
           <input name='time' placeholder="Time" type='datetime-local' required /></div>
 
+          <div className="input-group1">
+                    <input name='seats' placeholder="Seats" required /></div>
+
         <div className="input-group1">
           <input name='cost' placeholder="Cost" type='number' required /></div>
 
