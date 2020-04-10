@@ -20,9 +20,9 @@ const intro = () => {
 
                 <div className="video">
                     {/* <img src={img1} alt="img1" /> */}
-                    <iframe width="420" height="345" src="https://www.youtube.com/embed/-XHrc9nQz1c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        
+                    <iframe width="580" height="380" src="https://www.youtube.com/embed/Rl_2-uhYUjY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
                 </div>
+
                 <section className="intro_info">
                     <h1 className="titlee"> YOU NEED A RIDE!!? </h1>
                     <h1 >Yallah Ride </h1>
