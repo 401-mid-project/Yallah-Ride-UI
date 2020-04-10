@@ -19,7 +19,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-  width: 200vh;
+  // width: 200vh;
 }
 
 
@@ -212,20 +212,41 @@ form .input-group1 input  {
   transition: 400ms;
 }
 
-.img1 img{
-  width: 35%;
-  float: right;
-  margin-top: 60px;
-  margin-right: 10vh;
+// .img1 img{
+//   width: 35%;
+//   float: right;
+//   margin-top: 60px;
+//   margin-right: 10vh;
+//   position: relative;
+//   transition: 900ms;
+//   cursor: pointer;
+// }
+
+// .img1 img:hover{
+//   width: 40%;
+//   transition: 900ms;
+// }
+
+.video {
+  margin-top: 80px;
+  margin-left:63%;
   position: relative;
-  transition: 900ms;
-  cursor: pointer;
 }
 
-.img1 img:hover{
-  width: 40%;
-  transition: 900ms;
+iframe{
+  opacity: 70%;
+  border: solid 1px red;
+  border-radius: 25px;
+  transition: all 300ms ease-in-out;
 }
+
+iframe:hover{
+    opacity: 100%;
+  }
+
+
+
+
 
 .intro_info{
   width: 40%;
@@ -250,7 +271,7 @@ form .input-group1 input  {
 	overflow: hidden;
 	width: 1200px;
   min-height: 650px;
-  margin-top: 28px;
+  margin-top: 10vh;
   display: flex;
 	justify-content: center;
 	align-items: center;

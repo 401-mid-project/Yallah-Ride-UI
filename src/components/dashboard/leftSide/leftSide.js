@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import '../../../style/dashboard.scss';
-import profile_img from '../../../img/profiler.png'
+import profile_img from '../../../img/do.png'
 import { userInfoContext } from '../../../contexts/userInfo.js'
 
 
@@ -20,8 +20,8 @@ function LeftSide() {
                             <img src={profile_img} alt="profile_img" />
                         </div>
                         <div className="profile_data">
-                            <p className="name">Rashid .S</p>
-                            <p className="role">UI Developer</p>
+                            <p className="name">Yalla-Ride</p>
+                            <p className="role">Team</p>
                         </div>
                     </div>
                     <ul className="siderbar_menu">

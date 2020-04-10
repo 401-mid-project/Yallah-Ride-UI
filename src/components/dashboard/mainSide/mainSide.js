@@ -102,7 +102,7 @@ function MainSide() {
                                     )
                                 }
                             })}
-                            {useInfo.userData.pendingMessages.length === 0 && <li>Empty</li>}<section className="D-boo">
+                            {useInfo.userData.pendingMessages.length === 0 && <li></li>}<section className="D-boo">
                             {useInfo.userData.askMessages.length > 0 && useInfo.userData.askMessages.map((val, idx) => {
                                 console.log('ask object', val);
                                 if (val.askId) {
@@ -133,7 +133,7 @@ function MainSide() {
                                     )
                                 }
                             })}
-                            {useInfo.userData.askMessages.length === 0 && <li>No messages</li>}
+                            {useInfo.userData.askMessages.length === 0 && <li></li>}
                             {useInfo.userData.offerMessages.length > 0 && useInfo.userData.offerMessages.map((val, idx) => {
                                 if (val.offerId) {
                                     console.log('offers', val)
@@ -162,7 +162,7 @@ function MainSide() {
                                     )
                                 }
                             })}</section>
-                            {useInfo.userData.offerMessages.length === 0 && <li>No messages</li>}
+                            {useInfo.userData.offerMessages.length === 0 && <li></li>}
                         </section>
                         
                     }
@@ -183,7 +183,7 @@ function MainSide() {
                                                 <path class="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="pink" stroke-width="3" fill="transparent" />
                                             </svg>
                                             <div class="card__content">
-                                                <h1 class="card__title">{val.userName} Asks</h1>
+                                                <h1 class="card__title">Ask</h1>
                                                 <h3 >For a Ride From {val.location} TO {val.destination}</h3>
                                                 <h3 > at {val.time}</h3>
                                                 
@@ -193,6 +193,7 @@ function MainSide() {
                                     </div>
                                 )
                             })}
+                            <br/>
                             {useInfo.userData.drives.length > 0 && useInfo.userData.drives.map((val, idx) => {
                                 return (
                                     <div class="containerc">
@@ -209,7 +210,7 @@ function MainSide() {
                                             </svg>
 
                                             <div class="card__content">
-                                                <h1 class="card__title">{val.userName} Offer </h1>
+                                                <h1 class="card__title"> Offer </h1>
                                                 <h3 >a Ride to Share From {val.location} TO {val.destination}</h3>
                                                 <h3 >at {val.time}</h3>
                                                 <h3 class="card__title">The Car Will Be {val.catType}</h3>

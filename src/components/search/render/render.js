@@ -61,7 +61,7 @@ function Render() {
                                     useInfo.userData.pendingMessages.filter(message => message.askId === val.askId).length === 0
                                         && useInfo.userData._id !== val.userId &&
 
-                                        <button type='submit' > Accept </button>
+                                        <button type='submit' > Request </button>
                                     }
                                                   </div>
 

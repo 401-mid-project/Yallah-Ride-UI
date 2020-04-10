@@ -55,16 +55,23 @@
 .profile_info {
   padding: 30px 20px;
   text-align: center;
+  
 }
 
 .profile_img {
   width: 100px;
   margin: 0 auto 15px;
+ 
+
 }
 
 .profile_img img {
   width: 100%;
   display: block;
+  border: solid 1px ;
+  border-radius: 100% ;
+
+
 }
 
 .name {
