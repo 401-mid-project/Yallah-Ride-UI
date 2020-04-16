@@ -38,14 +38,14 @@ function LoggerProvider(props){
             
             let output  = await fetch(`${API}/signin`,{
                 method:'POST',
-                mode: 'cors',
+                mode: 'no-cors',
                 cache : 'no-cache',
                 headers: new Headers({
                     'Authorization':`Basic ${btoa(`${username}:${password}`)}`
                 })
             });
             let response = await output.json();
-            console.log(response , typeof response)
+            // console.log(response , typeof response)
             await validator(response.token , response.id)
         }catch(e){
             console.error(e)

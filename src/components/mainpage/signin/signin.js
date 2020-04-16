@@ -14,7 +14,7 @@ const SignIn = () => {
     e.preventDefault();
     let userName = e.target.name.value;
     let password = e.target.password.value;
-    console.log('handleSubmit', userName)
+    // console.log('handleSubmit', userName)
     useLogger.logIn(userName, password);
   }
   return (

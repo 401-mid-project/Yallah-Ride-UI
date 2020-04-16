@@ -53,7 +53,7 @@ const SignUp = () => {
         'Content-Type': 'application/json'
       },
       method: 'POST',
-      mode: 'cors',
+      mode: 'no-cors',
       cache: 'no-cache',
       body: JSON.stringify(data)
     })

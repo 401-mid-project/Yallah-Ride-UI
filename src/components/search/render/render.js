@@ -27,7 +27,7 @@ function Render() {
         let output = await fetch(`${API}/render`, {
             method: 'GET',
             cache: 'no-cache',
-            mode: 'cors',
+            mode: 'no-cors',
             headers: new Headers({
                 'Authorization': `Bearer ${token}`,
             }),
