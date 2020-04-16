@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { loggerContext } from '../../../contexts/logger.js';
 
-const API = 'http://localhost:3333';
+const API = 'https://yalla-server401.herokuapp.com';
 
 
 

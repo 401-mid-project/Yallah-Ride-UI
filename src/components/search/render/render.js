@@ -6,7 +6,7 @@ import { postContext } from '../../../contexts/poster.js';
 import { userInfoContext } from '../../../contexts/userInfo.js';
 import { HandleAsk, HandleOffer } from './render-functions.js'
 
-const API = 'http://localhost:3333';
+const API = 'https://yalla-server401.herokuapp.com';
 
 
 

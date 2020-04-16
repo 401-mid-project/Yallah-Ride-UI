@@ -6,7 +6,7 @@ import imgMyTasks from '../../../img/12.jpg';
 import imgMyTasks2 from '../../../img/11.jpg';
 
 
-const API = 'http://localhost:3333';
+const API = 'https://yalla-server401.herokuapp.com';
 
 function MainSide() {
 

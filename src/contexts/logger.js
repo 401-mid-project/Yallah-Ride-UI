@@ -3,7 +3,7 @@ import cookie from 'react-cookies';
 import jwt from 'jsonwebtoken' ;
 
 
-const API = 'http://localhost:3333';
+const API = 'https://yalla-server401.herokuapp.com';
 const SECRET = 'Shushhhhh' ;
 
 export const loggerContext = React.createContext();
