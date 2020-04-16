@@ -19,7 +19,7 @@ function Render() {
 
     const usePost = useContext(postContext);
     const useInfo = useContext(userInfoContext);
-    console.log(useInfo, '*********************')
+    // console.log(useInfo, '*********************')
 
     let getData = async () => {
 
@@ -27,7 +27,6 @@ function Render() {
         let output = await fetch(`${API}/render`, {
             method: 'GET',
             cache: 'no-cache',
-            mode: 'no-cors',
             headers: new Headers({
                 'Authorization': `Bearer ${token}`,
             }),

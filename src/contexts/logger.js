@@ -39,7 +39,6 @@ function LoggerProvider(props){
             
             let output  = await fetch(`${API}/signin`,{
                 method:'POST',
-                mode: 'no-cors',
                 cache : 'no-cache',
                 headers: new Headers({
                     'Authorization':`Basic ${btoa(`${username}:${password}`)}`

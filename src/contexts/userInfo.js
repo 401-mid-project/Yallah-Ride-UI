@@ -23,7 +23,6 @@ function UserInfoProvider(props){
     let output = await fetch(`${API}/dashboard` , {
         method: 'GET',
         cache: 'no-cache',
-        mode:'cors',
         headers: new Headers({
             'Authorization':`Bearer ${token}`
         })
