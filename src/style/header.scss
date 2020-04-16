@@ -1,0 +1,849 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap");
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+}
+
+
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar{
+  position: relative;
+}
+
+.bg_shadow{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgb(0, 0, 0);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.sidebar__inner {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: -webkit-linear-gradient(to right, rgb(223, 0, 0), rgb(110, 0, 0));
+  background: linear-gradient(to right, rgb(207, 0, 0), rgb(92, 0, 0));
+  box-shadow: 0 2px 6px rgb(0, 0, 0);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+
+.main_container {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+   transition: all 0.3s ease;
+}
+
+.profile_info {
+  padding: 30px 50px;
+  text-align: center;
+}
+
+.profile_img {
+  width: 125px;
+  margin: 0 auto 15px;
+}
+
+.profile_img img {
+  width: 100%;
+  display: block;
+}
+
+.name {
+  font-size: 22px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
+
+}
+
+.role {
+  font-weight: 300;
+  color: #ffffff;
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
+  margin-bottom: 15px;
+}
+
+
+.siderbar_menu li a {
+  padding: 10px 50px;
+  display: block;
+  height: 90px;
+  position: relative;
+  color: #ffffff;
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
+  text-align: center;
+  text-transform: uppercase;
+  transition: 400ms;
+
+}
+
+.icon {
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.siderbar_menu li a:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: 0 0 10px #d8d8d8, 0 0 40px #eeeeee, 0 0 80px #f3f3f3;
+  display: none;
+}
+
+.siderbar_menu li a:hover,
+.siderbar_menu li a.active {
+  color: #f8f8f8;
+  background: #660000;
+  box-shadow: 0 2px 6px rgb(0, 0, 0);
+  transition: 400ms;
+}
+
+.siderbar_menu li a:hover:before,
+.siderbar_menu li a.active:before {
+  display: block;
+}
+
+.top_navbar {
+  width: calc(100% - 250px);
+  height: 60px;
+  background: -webkit-linear-gradient(to right,rgb(110, 0, 0) ,rgb(223, 0, 0) );
+  background: linear-gradient(to right,rgb(92, 0, 0) ,rgb(207, 0, 0) );
+  box-shadow: 0 2px 6px rgb(0, 0, 0);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 25px;
+  position: fixed;
+  top: 0;
+  left: 250px;
+  transition: all 0.3s ease;
+  z-index: +2;
+}
+
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu li a {
+  margin:  15px;
+  padding: 0 15px;
+  position: relative;
+  color: #ffffff;
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
+  font-weight: 400;
+  text-align: center;
+  transition: 500ms;
+}
+
+.menu li a:before {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #ffffff;
+  box-shadow: 0 0 10px #d8d8d8;
+  display: none;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+.menu li a.active,
+.menu li a:hover {
+    color: rgb(255, 255, 255);
+}
+
+.menu li a:hover:before,
+.menu li a.active:before {
+  display: block;
+}
+
+.right_bar {
+  display: flex;
+}
+
+.right_bar li {
+  margin: 0 10px;
+}
+
+.right_bar .fas {
+  font-size: 25px;
+  cursor: pointer;
+  color: #ffffff;
+  transition: 400ms;
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
+
+}
+
+.right_bar li:hover, .fas:hover {
+    color: rgb(60, 255, 0);
+    transition: 400ms;
+}
+
+.containerx {
+  padding: 30px;
+  margin-top: 60px;
+}
+
+.item {
+  padding: 20px;
+  font-size: 14px;
+  line-height: 22px;
+  width: 100%;
+  
+
+}
+
+
+////////////////////////////////////////////////////////
+
+
+.card {
+  position: relative;
+  height: 200px;
+  width: 900px;
+  margin-bottom: 50px ;
+  box-shadow: 0 6px 6px rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.26);
+//   background: -webkit-linear-gradient(to right,rgba(110, 0, 0, 0.904) ,rgba(175, 0, 0, 0.931) );
+//   background: linear-gradient(to right,rgba(92, 0, 0, 0.904) ,rgba(184, 0, 0, 0.89) );
+//   box-shadow: 0 6px 6px rgb(0, 0, 0);
+  z-index: 0;
+}
+
+
+.right {
+  margin-left: 350px;
+  margin-right: 20px;
+}
+
+.h {
+  padding-top: 15px;
+  font-size: 1.3rem;
+  color: #ff0000;
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
+}
+
+.h1t{
+    padding-top: 10px;
+    text-shadow: 0 2px 2px rgb(0, 0, 0);
+}
+
+
+.author > img {
+  padding-top: 2px;
+  margin-left: 5px;
+  float: left;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+.Asks {
+  margin-right: 25px;
+  text-align: center;
+  font-size: 1rem;
+  color: rgb(241, 241, 241);
+}
+
+.separator {
+  margin-top: 10px;
+  margin-left: -30px;
+  border: 1px solid #f50000;
+  box-shadow: 0 0 10px #cc0000;
+}
+
+.p1 {
+  text-align: justify;
+  padding-top: 10px;
+  line-height: 150%;
+  color: #ffffff;
+  text-shadow: 0 2px 2px rgb(0, 0, 0);
+}
+
+h5 {
+  position: absolute;
+  left: 30px;
+  bottom: 150px;
+  font-size: 3rem;
+  color: #ffffff;
+  text-shadow: 0 6px 6px rgb(0, 0, 0);
+}
+
+h6 {
+  position: absolute;
+  left: 30px;
+  bottom: 80px;
+  font-size: 4rem;
+  color: #ffffff;
+  text-shadow: 0 6px 6px rgb(0, 0, 0);
+}
+
+
+.fab1 {
+  position: absolute;
+  right: 50px;
+  bottom: 30px;
+  padding-top: 14px;
+  width: 60px;
+  height: 60px;
+  color: #ffffff;
+  font-size: 12px;
+  text-shadow: 0 0 10px #ffffff;
+  text-align: center;
+  border-radius: 50%;
+}
+
+
+
+
+///////////////////////////////////////////////@extend
+
+
+
+// body {
+// 	font-family: 'Roboto', sans-serif;
+// 	background: #fff;
+// }
+
+// .conatiner {
+// 	width: 100%;
+// 	height: 500px;
+// }
+.wrap {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+}
+
+.box {
+	margin: 10px;
+	width: 310px;
+	height: 490px;
+	text-align: center;
+	border-radius: 3px;
+	-webkit-transition: 400ms ease-in-out;
+	-o-transition: 400ms ease-in-out;
+	transition: 400ms ease-in-out;
+	-webkit-box-shadow: 0 0 15px rgba(0,0,0,0.3);
+	        box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+.box:hover {
+  transform: scale(1.1);
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.7);
+	        box-shadow: 0 0 5px rgba(0,0,0,0.7);
+}
+.box h1 {
+	color: #fff;
+	padding: 30px;
+	margin-top: 70px;
+	text-align: center;
+	font-weight: 100;
+	font-size: 35px;
+	background: rgba(0,0,0,0.8);
+	-webkit-box-shadow: 0 0 30px rgba(0,0,0,0.7);
+	        box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+.date h4 {
+  padding-top: 20px;
+	color: #fff;
+	font-weight: 300;
+	text-align: center;
+	letter-spacing: 3px;
+	text-shadow: 0 0 3px rgba(0,0,0,0.9);
+}
+.poster {
+	width: 130px;
+	height:130px;
+	border-radius: 100px;
+}
+.poster h4 {
+	top: 16px;
+	color: #fff;
+	position: relative;
+	font-size: 100px;
+	text-align: center;
+	font-weight: 100;
+}
+.R {
+	background: url('https://mobilehd.blob.core.windows.net/main/2016/08/porsche-panamera-interior-view-1280x1920.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+  background-position: center;    
+  cursor: pointer;
+}
+
+.S {
+	background: url('https://i.pinimg.com/originals/e8/ae/6e/e8ae6ed2513f06fe7bee662968480419.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+  background-position: center;    
+  cursor: pointer;
+}
+
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+    margin-left: 320px;
+    padding-right:-600px;
+  }
+  
+  .columnR {
+    margin-top: 30px;
+    vertical-align: middle;
+  }
+ 
+
+
+///////////////////////////////////////////////////chat
+
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,500,900&display=swap');
+
+$text-1: #333;
+$text-2: #666;
+$text-3: #999;
+$line: #CCC;
+$time-bg: rgb(184, 0, 0);
+$background: rgb(240, 0, 0);
+	
+// body, html {
+// 	font-family: Red hat Display, sans-serif;
+// 	font-weight: 400;
+// 	line-height: 1.25em;
+// 	letter-spacing: 0.025em;
+// 	color: $text-1;
+// 	background: $background;
+// }
+
+.center {
+	position: absolute;
+	top: 50%;
+	left: calc(50% + 12rem);
+	transform: translate(-50%, -50%);
+}
+
+.pic {
+	width: 4rem;
+	height: 4rem;
+	background-size: cover;
+	background-position: center;
+	border-radius: 50%;
+}
+
+.contact {
+	position: relative;
+	margin-bottom: 1rem;
+	padding-left: 5rem;
+	height: 4.5rem;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	.pic {
+		position: absolute;
+		left: 0;
+	}
+
+	.name {
+		font-weight: 500;
+		margin-bottom: 0.125rem;
+	}
+
+	.message, .seen {
+		font-size: 0.9rem;
+		color: $text-3;
+	}
+	
+	.badge {
+		box-sizing: border-box;
+		position: absolute;
+		width: 1.5rem;
+		height: 1.5rem;
+		text-align: center;
+		font-size: 0.9rem;
+		padding-top: 0.125rem;
+		border-radius: 1rem;
+
+		top: 0;
+		left: 2.5rem;
+		background: $text-1;
+		color: rgb(197, 0, 0);
+	}
+}
+
+.contacts {
+	position: absolute;
+	transform: translate(-6rem, -50%);
+	margin-left: 290px;
+  margin-top: 90px;
+	width: 23rem;
+	height: 32rem;
+	padding: 1rem 2rem 1rem 1rem;
+	box-sizing: border-box;
+	border-radius: 1rem 0 0 1rem;
+	
+	cursor: pointer;
+	
+	background: rgb(236, 0, 0);
+	box-shadow: 
+		0 0 8rem 0 rgba(black, 0.1),
+		2rem 2rem 4rem -3rem rgba(black, 0.5);
+	
+	transition: transform 500ms;
+	
+	h2 {
+		margin: 0.5rem 0 1.5rem 5rem;
+	}
+	
+	.fa-bars {
+		position: absolute;
+		left: 2.25rem;
+		
+		color: $text-3;
+		transition: color 200ms;
+		
+		&:hover {
+			color: $text-2;
+		}
+	}
+	
+	.contact:last-child {
+		margin: 0;
+	}
+	
+	&:hover {
+		transform: translate(-23rem, -50%);
+	}
+}
+
+.chat {
+	position: fixed;
+	bottom: -290px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+  margin-left: 280px;
+  margin-bottom: -120px;
+	width: 22rem;
+	height: 38rem;
+	z-index: 2;
+	box-sizing: border-box;
+	border-radius: 1rem;
+	
+	background: rgb(255, 0, 0);
+	box-shadow: 
+		0 0 8rem 0 rgba(black, 0.1),
+		0rem 2rem 4rem -3rem rgba(black, 0.5);
+	
+	.contact.bar {
+		flex-basis: 3.5rem;
+		flex-shrink: 0;
+		margin: 1rem;
+		box-sizing: border-box;
+	}
+	
+	.messages {
+		padding: 1rem;
+		background: $background;
+		flex-shrink: 2;
+		overflow-y: auto;
+		
+		box-shadow: 
+			inset 0 2rem 2rem -2rem rgba(black, 0.05),
+			inset 0 -2rem 2rem -2rem rgba(black, 0.05);
+		
+		.time {
+			font-size: 0.8rem;
+			background: $time-bg;
+			padding: 0.25rem 1rem;
+			border-radius: 2rem;
+			color: $text-3;
+			width: fit-content;
+			margin: 0 auto;
+		}
+		
+		.message {
+			box-sizing: border-box;
+			padding: 0.5rem 1rem;
+			margin: 1rem;
+			background: rgb(128, 0, 0);
+			border-radius: 1.125rem 1.125rem 1.125rem 0;
+			min-height: 2.25rem;
+			width: fit-content;
+			max-width: 66%;
+			
+			box-shadow: 
+				0 0 2rem rgba(black, 0.075),
+				0rem 1rem 1rem -1rem rgba(black, 0.1);
+			
+			&.parker {
+				margin: 1rem 1rem 1rem auto ;
+				border-radius: 1.125rem 1.125rem 0 1.125rem;
+				background: $text-1;
+				color: rgb(207, 207, 207);
+			}
+			
+			.typing {
+				display: inline-block;
+				width: 0.8rem;
+				height: 0.8rem;
+				margin-right: 0rem;
+				box-sizing: border-box;
+				background: #ccc;
+				border-radius: 50%;
+				
+				&.typing-1 { animation: typing 3s infinite }
+				&.typing-2 { animation: typing 3s 250ms infinite }
+				&.typing-3 { animation: typing 3s 500ms infinite }
+			}
+		}
+	}
+	
+	.input {
+		box-sizing: border-box;
+		flex-basis: 4rem;
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		padding: 0 0.5rem 0 1.5rem;
+		
+		i {
+			font-size: 1.5rem;
+			margin-right: 1rem;
+			color: $text-2;
+			cursor: pointer;
+			transition: color 200ms;
+			
+			&:hover {
+				color: $text-1;
+			}
+		}
+		
+		input {
+			border:none;
+			background-image:none;
+			background-color: rgb(224, 0, 0);
+			padding: 0.5rem 1rem;
+			margin-right: 1rem;
+			border-radius: 1.125rem;
+			flex-grow: 2;
+			box-shadow: 
+				0 0 1rem rgba(black, 0.1),
+				0rem 1rem 1rem -1rem rgba(black, 0.2);
+			
+			font-family: Red hat Display, sans-serif;
+			font-weight: 400;
+			letter-spacing: 0.025em;
+			
+			&:placeholder {
+				color: $text-3;
+			}
+		}
+	}
+}
+
+
+@keyframes typing {
+	0%, 75%, 100% {
+		transform: translate(0, 0.25rem) scale(0.9);
+		opacity: 0.5;
+	}
+	
+	25% {
+		transform: translate(0, -0.25rem) scale(1);
+		opacity: 1;
+	}
+}
+
+// Obviously in a real app I would load this from a DB with JS
+// For now this is a nice quick and easy method to mockup
+
+.pic.stark { background-image: url('https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/7/73/SMH_Mentor_6.png')}
+.pic.banner { background-image: url('https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/4/4f/BruceHulk-Endgame-TravelingCapInPast.jpg')}
+.pic.thor { background-image: url('https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/9/98/ThorFliesThroughTheAnus.jpg')}
+.pic.danvers { background-image: url('https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/0/05/HeyPeterParker.png')}
+.pic.rogers { background-image: url('https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/7/7c/Cap.America_%28We_Don%27t_Trade_Lives_Vision%29.png')}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
