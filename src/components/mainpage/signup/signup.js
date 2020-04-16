@@ -55,7 +55,7 @@ const SignUp = () => {
       method: 'POST',
       mode: 'no-cors',
       cache: 'no-cache',
-      body: JSON.stringify(data)
+      body: data
     })
 
     let response = await output.json();
