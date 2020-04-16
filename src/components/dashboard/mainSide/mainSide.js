@@ -17,7 +17,7 @@ function MainSide() {
         useInfo.getInfo()
     }, [useInfo.dataState, buttonState])
 
-    console.log(buttonState, '<===============');
+    // console.log(buttonState, '<===============');
     let handleSubmit = (e) => {
         e.preventDefault();
 
@@ -51,11 +51,11 @@ function MainSide() {
 
         let response = await output.json();
         useInfo.getInfo();
-        console.log('update', response);
+        // console.log('update', response);
     }
 
 
-    console.log('the problem', useInfo.userData)
+    // console.log('the problem', useInfo.userData)
     return (
 
         <>
@@ -104,7 +104,7 @@ function MainSide() {
                             })}
                             {useInfo.userData.pendingMessages.length === 0 && <li></li>}<section className="D-boo">
                             {useInfo.userData.askMessages.length > 0 && useInfo.userData.askMessages.map((val, idx) => {
-                                console.log('ask object', val);
+                                // console.log('ask object', val);
                                 if (val.askId) {
                                     return (
                                         <form key={idx} onSubmit={e => { return (handleAskResponse(e), setButtonState(!buttonState)) }}>
@@ -136,7 +136,7 @@ function MainSide() {
                             {useInfo.userData.askMessages.length === 0 && <li></li>}
                             {useInfo.userData.offerMessages.length > 0 && useInfo.userData.offerMessages.map((val, idx) => {
                                 if (val.offerId) {
-                                    console.log('offers', val)
+                                    // console.log('offers', val)
                                     return (<form key={idx} onSubmit={e => { return (handleOfferResponse(e), setButtonState(!buttonState)) }}>
                                         <a href="#">
                                             <figure>

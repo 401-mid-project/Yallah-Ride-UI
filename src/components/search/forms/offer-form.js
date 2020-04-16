@@ -27,7 +27,7 @@ function OfferForm() {
             'booked': booked.value,
         };
 
-        console.log('data of Offer', data);
+        // console.log('data of Offer', data);
 
         addOffer(data)
     }
@@ -47,14 +47,16 @@ function OfferForm() {
 
         let response = await output.json();
 
-        console.log('add-offer response', response);
+        // console.log('add-offer response', response);
         usePost.setOffer(false)
 
     }
 
     return (
         <>
-            <form className="form" onSubmit={(e) => handleSubmit(e)}>
+        <div className="formContainer">
+
+            <form className="offerForm hotFix" onSubmit={(e) => handleSubmit(e)}>
 
                 <div className="input-group1">
                     <input name='location' placeholder="Location" required /></div>
@@ -82,6 +84,9 @@ function OfferForm() {
                 <button className="ghost1">Submit</button><button className="ghost1" onClick={() => usePost.setOffer(false)}>Close</button>
 
             </form>
+
+            </div>
+
 
         </>
     )

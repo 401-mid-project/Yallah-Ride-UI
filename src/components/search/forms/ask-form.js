@@ -51,8 +51,9 @@ function AskForm() {
   return (
     <>
 
+      <div className="formContainer">
 
-      <form className="form" onSubmit={(e) => handleSubmit(e)} >
+      <form className="offerForm hotFix" onSubmit={(e) => handleSubmit(e)} >
 
         <div className="input-group1">
           <input name='location' placeholder="Location" required /></div>
@@ -78,6 +79,8 @@ function AskForm() {
         <button className="ghost1">Submit</button><button className="ghost1" onClick={() => usePost.setAsk(false)}>Close</button>
 
       </form>
+
+      </div>  
 
     </>
   )

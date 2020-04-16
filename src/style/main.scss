@@ -18,7 +18,8 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-direction: column;
+  flex-direction: column;
+  // height: 100vh;
   // width: 200vh;
 }
 
@@ -135,10 +136,10 @@ form .input-group {
 }
 
 .input-group-date input  {
-  width: 180%;
+  width: 80%;
   font-size: 18px;
   letter-spacing: 1px;
-  margin-left: -39%;
+  // margin-left: -39%;
   border: none;
   border-bottom: 1px solid rgb(226, 226, 226);
   outline: none;
@@ -875,3 +876,34 @@ footer {
   width: 90%;
 }
 
+
+
+
+.formContainer{
+  height: fit-content;
+  width: fit-content;
+  background-color: rgba(0, 0, 0, 0.80);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  // filter: blur(50px);
+  border-radius: 20px;
+  margin-top: calc(50% - 500px) ;
+  position: fixed;
+
+}
+
+.offerForm {
+  height: 500px;
+  width: 350px;
+  overflow: hidden;
+}
+
+.hotFix button{
+ margin: 25px 5px;
+}
+
+// .input-group-date {
+//   width: 100%;
+// }

@@ -27,7 +27,7 @@ const askResponse = async (data) => {
     }),
   });
 
-  console.log('response Done !!');
+  // console.log('response Done !!');
 };
 
 /////////////////////// offers ////////////
@@ -41,7 +41,7 @@ export const handleOfferResponse = (e) => {
     'offerId': offerId.value,
     'action': action.value,
   };
-  console.log('dadadada', data);
+  // console.log('dadadada', data);
   offerResponse(data);
 };
 
@@ -57,6 +57,6 @@ const offerResponse = async (data) => {
     }),
   });
 
-  console.log('response Done !!');
+  // console.log('response Done !!');
 };
 
