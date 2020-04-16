@@ -1,5 +1,5 @@
 import cookie from 'react-cookies';
-const API = 'http://localhost:3333';
+const API = 'https://yalla-server401.herokuapp.com';
 
 
 

@@ -4,7 +4,7 @@ import { userInfoContext } from '../../../contexts/userInfo.js'
 import { handleAskResponse, handleOfferResponse } from './main-functions.js';
 
 
-const API = 'http://localhost:3333';
+const API = 'https://yalla-server401.herokuapp.com';
 
 function MainSide() {
 

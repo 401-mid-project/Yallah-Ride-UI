@@ -3,7 +3,7 @@ import cookie from 'react-cookies';
 
 export const userInfoContext =  React.createContext();
 
-const API = 'http://localhost:3333';
+const API = 'https://yalla-server401.herokuapp.com';
 
 
 function UserInfoProvider(props){
