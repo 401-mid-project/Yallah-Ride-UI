@@ -53,9 +53,8 @@ const SignUp = () => {
         'Content-Type': 'application/json'
       },
       method: 'POST',
-      mode: 'no-cors',
       cache: 'no-cache',
-      body: data
+      body: JSON.stringify(data)
     })
 
     let response = await output.json();
