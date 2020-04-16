@@ -40,13 +40,13 @@ const SignUp = () => {
     }
 
     handleSignUp(data);
-
-    console.log(data);
   }
 
 
 
   let handleSignUp = async (data) => {
+
+    console.log('signup post req', data)
 
     let output = await fetch(`${API}/signup`, {
       headers: {
