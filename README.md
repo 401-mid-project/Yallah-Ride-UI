@@ -43,4 +43,4 @@ Same as hitchhiking idea which is used to get a lift with passing vehicles when 
 =======
 #### UML
 
-Link to an image of the UML for your application and response to events
+![UML](src/img/uml.png)
