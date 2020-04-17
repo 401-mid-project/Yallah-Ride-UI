@@ -1,30 +1,9 @@
 # Yallah-Ride-UI
 
-You wanna Ride ? You wanna share your Ride ?
-what are you waiting for ? JOIN US NOW !!
-
-## Getting Started
-
-### Setup
-
-```js
-// clone this repository
-~ git clone 
-
-// cd into the project directory
-~ cd Yallah-Ride
-```
-
-
-#### `.env` requirements (where applicable)
-
-- `PORT` - 3000
-- `MONGODB_URI` - mongodb://localhost:27017/db-name
 
 #### How to initialize/run your application (where applicable)
 
 - e.g. `npm start`
-
 
 ## Running the tests
 
@@ -61,3 +40,7 @@ Same as hitchhiking idea which is used to get a lift with passing vehicles when 
 * You will have the chance to meet friendly people on the application, which then would give you a life time friendship!
 * Reducing the pollution and saving the environment 
 * Decreasing the use of cars which will reduce the traffic, as well as it will help to reduce the pollutant emission.
+=======
+#### UML
+
+Link to an image of the UML for your application and response to events
