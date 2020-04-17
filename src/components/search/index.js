@@ -18,6 +18,11 @@ import Ask from './forms/ask-form.js';
 function Search() {
     const usePost = useContext(postContext);
 
+    // 
+    let offerForm = <Offer />;
+    let askForm = <Ask /> ;
+
+
     let Form;
     if (usePost.offer) {
         usePost.setAsk(false);
@@ -35,7 +40,10 @@ function Search() {
 
     return (
         <>
-            {Form}
+            {/* {Form} */}
+            {usePost.offer && offerForm}
+            {usePost.ask && askForm}
+
             <div className="wrapper">
                 <div className="sidebar">
                     <div className="bg_shadow"></div>
