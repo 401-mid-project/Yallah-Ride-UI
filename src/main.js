@@ -5,10 +5,12 @@ window.onload=function(){
   const signInButton = document.getElementById('signIn');
   const container = document.getElementById('container');
 
-  signUpButton.addEventListener('click', () => {
+  
+  signUpButton && signUpButton.addEventListener('click', () => {
     container.classList.add('right-panel-active');
   });
 
-  signInButton.addEventListener('click', () => {
+  signInButton && signInButton.addEventListener('click', () => {
     container.classList.remove('right-panel-active');
-  }); };
+  }); 
+};

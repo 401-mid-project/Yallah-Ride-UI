@@ -37,7 +37,7 @@ const sendAsk = async(message) => {
       
   //   let response = await output.json();
           
-  console.log('sent !!!!!!');
+  // console.log('sent !!!!!!');
 };
 
 ////////////// offer side ///////////
@@ -60,12 +60,12 @@ export const HandleOffer = (e) =>{
     'catType': catType.value,
   };
 
-  console.log('areeeeeeeos', message);
+  // console.log('areeeeeeeos', message);
   sendOffer(message);
 };
 
 const sendOffer = async(message) => {
-  console.log('areeeeeeeos', message);
+  // console.log('areeeeeeeos', message);
   let token = await cookie.load('auth');
   await fetch(`${API}/search/requestOffer` , {
     method:'PUT',
@@ -74,10 +74,7 @@ const sendOffer = async(message) => {
       'Authorization':`Bearer ${token}`,
       'Content-Type': 'application/json',
     }),
-  });
-      
-  //   let response = await output.json();
-          
-  console.log('sent !!!!!!');
+  });          
+  // console.log('sent !!!!!!');  
 };
 

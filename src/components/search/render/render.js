@@ -19,7 +19,7 @@ function Render() {
 
     const usePost = useContext(postContext);
     const useInfo = useContext(userInfoContext);
-    console.log(useInfo, '*********************')
+    // console.log(useInfo, '*********************')
 
     let getData = async () => {
 
@@ -27,7 +27,6 @@ function Render() {
         let output = await fetch(`${API}/render`, {
             method: 'GET',
             cache: 'no-cache',
-            mode: 'cors',
             headers: new Headers({
                 'Authorization': `Bearer ${token}`,
             }),
@@ -44,103 +43,171 @@ function Render() {
         getData();
 
     }, [usePost.offer, usePost.ask, useButton]);
-
-
-
-
-
-
     return (
         <>
             <section class="row">
                 {rides.map((val, idx) => {
-                    // console.log( 'each ASK:',val)
-                    // console.log('@@@@@@' , val.booked)
                     if (val.booked !== 'true') {
-                        // console.log('wtf1111' , useInfo.userData._id)
-                        // console.log('wtf2222' , val.userId)
                         return (
-                            <form class="columnR" key={idx} onSubmit={e => { return (HandleAsk(e), setUseButton(!useButton)) }} >
+                            <form className="form1" class="columnR" key={idx} onSubmit={e => { return (HandleAsk(e), setUseButton(!useButton)) }} >
+                                
 
-                            <div class="box S">
-                                    <div class="date">
-                                        <h4>{val.userName}</h4>
-                                        <h4>{val.time}</h4><h4>TO {val.destination} </h4>
-                                    </div>
-                                    <h1>Asks</h1>
-                                        <div class="date">
-                                        <h4> Cost: {val.cost} JD </h4>
-                                        <h4> Location: {val.location}</h4>
-                                        <h4> Car: {val.catType} </h4>
-                                        <h4> seats: {val.seats} </h4>
-                                    </div>
-                                </div>
-                                <input type='hidden' name='userId' value={val.userId} />
-                                <input type='hidden' name='askId' value={val.askId} />
-                                <input type='hidden' name='userName' value={val.userName} />
-                                <input type='hidden' name='destination' value={val.destination} />
-                                <input type='hidden' name='location' value={val.location} />
-                                <input type='hidden' name='time' value={val.time} />
-                                <input type='hidden' name='cost' value={val.cost} />
-                                <input type='hidden' name='booked' value={val.booked} />
-
-                                {
+                                    <div class="cardS">
+                                        <div class="additional">
+                                            <div class="user-card">
+                                                <div class="points center">
+                                                {
                                     useInfo.userData.pendingMessages.filter(message => message.askId === val.askId).length === 0
-                                    && useInfo.userData._id !== val.userId &&
-                                    <button type='submit' > Request </button>
-                                }
+                                        && useInfo.userData._id !== val.userId &&
+
+                                        <button type='submit' > Request </button>
+                                    }
+                                                  </div>
+
+                                            </div>
+
+                                            
+                                            <div class="more-info">
+                                                <h1>Ask</h1>
+                                                <div class="coords">
+                                                    <span>{val.userName} </span>
+                                                    <span>{val.time}</span>
+                                                </div>
+                                                <div class="coords">
+                                                    <span>From {val.location}</span>
+                                                    <span>TO {val.destination}</span>
+                                                </div>  
+
+
+                                                <div class="stats">
+                                                    <div>
+                                                        <div class="title">Pay</div>
+                                                        <i class="fas fa-hand-holding-usd"></i>
+                                                        <div class="value">{val.cost}</div>
+                                                    </div>
+                                                    {/* <div>
+                                                        <div class="title">Matches</div>
+                                                        <i class="fa fa-gamepad"></i>
+                                                        <div class="value">27</div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="title">Seats</div>
+                                                        <i class="fas fa-chair"></i>
+                                                        <div class="value"> {val.seats}</div>
+                                                    </div> */}
+                                                    <div>
+                                                        <div class="title">Smoke</div>
+                                                        <i class="fas fa-smoking-ban"></i>
+                                                        <div class="title infinity">No</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="general">
+                                            <h1>Ask</h1>
+                                            <p>Need a Ride From {val.location} TO {val.destination} </p>
+                                            <span class="more">Mouse over the card for more info</span>
+                                        </div>
+                                        </div>
+                                    
+
+                                    <input type='hidden' name='userId' value={val.userId} />
+                                    <input type='hidden' name='askId' value={val.askId} />
+                                    <input type='hidden' name='userName' value={val.userName} />
+                                    <input type='hidden' name='destination' value={val.destination} />
+                                    <input type='hidden' name='location' value={val.location} />
+                                    <input type='hidden' name='time' value={val.time} />
+                                    <input type='hidden' name='cost' value={val.cost} />
+                                    <input type='hidden' name='booked' value={val.booked} />
+                                    
                             </form>
 
                         )
                     }
                 })}
             </section>
-            
-            <section class="row">
-                {drives.map((val, idx) => {
-                    if (val.booked !== 'true') {
 
-                        console.log('each offer', val.catType)
-                        return (
-                            <form class="columnR" key={idx} onSubmit={e => { return (HandleOffer(e), setUseButton(!useButton)) }} >
+                            <section class="row">
+                                {drives.map((val, idx) => {
+                                    if (val.booked !== 'true') {
 
-
-                                    <div class="box R">
-                                    <div class="date">
-                                        <h4>{val.userName}</h4>
-                                        <h4>{val.time}</h4><h4>TO {val.destination}</h4>
-                                    </div>
-                                    <h1>Offer</h1>
-                                        <div class="date">
-                                        <h4> Cost: {val.cost} JD </h4>
-                                        <h4> Location: {val.location}</h4>
-                                        <h4> Car: {val.catType} </h4>
-                                        <h4> seats: {val.seats} </h4>
-                                    </div>
-                                </div>
-
-                                <input type='hidden' name='userId' value={val.userId} />
-                                <input type='hidden' name='offerId' value={val.offerId} />
-                                <input type='hidden' name='userName' value={val.userName} />
-                                <input type='hidden' name='destination' value={val.destination} />
-                                <input type='hidden' name='location' value={val.location} />
-                                <input type='hidden' name='time' value={val.time} />
-                                <input type='hidden' name='cost' value={val.cost} />
-                                <input type='hidden' name='booked' value={val.booked} />
-                                <input type='hidden' name='catType' value={val.catType} />
-                                <input type='hidden' name='seats' value={val.seats} />
-
-                                {
+                                        console.log('each offer', val.catType)
+                                        return (
+                                            <form className="form1" class="columnR" key={idx} onSubmit={e => { return (HandleOffer(e), setUseButton(!useButton)) }} >
+                                    <div class="cardS2">
+                                        <div class="additional">
+                                            <div class="user-card">
+                                                <div class="points center">
+                                                {
                                     useInfo.userData.pendingMessages.filter(message => message.askId === val.askId).length === 0
                                     && useInfo.userData._id !== val.userId &&
-                                    <button type='submit' > Request </button>
-                                }  
-                            </form>
-                            // <div key={idx}> {JSON.stringify(val)} </div>
-                        )
-                    }
-                })}
-            </section>
+                                    <button type='submit' > Share </button>
+                                    }
+                                    </div>
+                                        </div>
+                                            <div class="more-info">
+                                                <h1>Offer</h1>
+                                                <div class="coords">
+                                                    <span>{val.userName} </span>
+                                                    <span>{val.time}</span>
+                                                </div>
+                                                <div class="coords">
+                                                    <span>From {val.location}</span>
+                                                    <span>TO {val.destination}</span>
+                                                </div>  
+
+
+                                                <div class="stats">
+                                                    <div>
+                                                        <div class="title">Cost</div>
+                                                        <i class="fas fa-hand-holding-usd"></i>
+                                                        <div class="coords">{val.cost}</div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="title">Car Type</div>
+                                                        <i class="fas fa-car"></i>
+                                                        <div class="coords">{val.catType}</div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="title">Seats</div>
+                                                        <i class="fas fa-chair"></i>
+                                                        <div class="coords"> {val.seats}</div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="title">Smoke</div>
+                                                        <i class="fas fa-smoking-ban"></i>
+                                                        <div class="title infinity">No</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="general">
+                                            <h1>Offer</h1>
+                                            <p>Have a Ride to Share From {val.location} TO {val.destination} </p>
+                                            <span class="more">Mouse over the card for more info</span>
+                                        </div>
+                                        </div>
+
+
+                                                <input type='hidden' name='userId' value={val.userId} />
+                                                <input type='hidden' name='offerId' value={val.offerId} />
+                                                <input type='hidden' name='userName' value={val.userName} />
+                                                <input type='hidden' name='destination' value={val.destination} />
+                                                <input type='hidden' name='location' value={val.location} />
+                                                <input type='hidden' name='time' value={val.time} />
+                                                <input type='hidden' name='cost' value={val.cost} />
+                                                <input type='hidden' name='booked' value={val.booked} />
+                                                <input type='hidden' name='catType' value={val.catType} />
+                                                <input type='hidden' name='seats' value={val.seats} />
+
+                                                {
+                                                    
+                                                }
+                                            </form>
+                                        )
+                                    }
+                                })}
+                            </section>
 
         </>
     )

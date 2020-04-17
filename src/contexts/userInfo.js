@@ -23,7 +23,6 @@ function UserInfoProvider(props){
     let output = await fetch(`${API}/dashboard` , {
         method: 'GET',
         cache: 'no-cache',
-        mode:'cors',
         headers: new Headers({
             'Authorization':`Bearer ${token}`
         })
@@ -32,15 +31,7 @@ function UserInfoProvider(props){
     let response = await output.json()
     await setUserData(response);
     await setDataState(true);
-
-    // console.log(response);
   }
-
-
-//   useEffect(()=>{
-//       getInfo();
-//   },[]);
-
 
   let keys = {current , setCurrent , getInfo , userData , dataState ,setDataState};
 

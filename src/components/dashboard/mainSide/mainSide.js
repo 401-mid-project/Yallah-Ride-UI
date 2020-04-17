@@ -2,23 +2,22 @@ import React, { useContext, useEffect, useState } from 'react';
 import cookie from 'react-cookies';
 import { userInfoContext } from '../../../contexts/userInfo.js'
 import { handleAskResponse, handleOfferResponse } from './main-functions.js';
+import imgMyTasks from '../../../img/12.jpg';
+import imgMyTasks2 from '../../../img/11.jpg';
 
 
 const API = 'https://yalla-server401.herokuapp.com';
 
 function MainSide() {
 
-    // to navigate between tabs
     const useInfo = useContext(userInfoContext);
     let [buttonState, setButtonState] = useState(true)
 
-
-    //to update user info every time data change
     useEffect(() => {
         useInfo.getInfo()
     }, [useInfo.dataState, buttonState])
 
-    console.log(buttonState, '<===============');
+    // console.log(buttonState, '<===============');
     let handleSubmit = (e) => {
         e.preventDefault();
 
@@ -52,233 +51,184 @@ function MainSide() {
 
         let response = await output.json();
         useInfo.getInfo();
-        console.log('update', response);
+        // console.log('update', response);
     }
 
 
-    console.log('the problem', useInfo.userData)
+    // console.log('the problem', useInfo.userData)
     return (
 
         <>
-            {/* We created useInfo to wrap the message part in order to handle the async data problem */}
             {useInfo.dataState &&
-
                 <div>
                     {useInfo.current === 'messages' &&
-
                         <section >
                             <h2>Pending Requests</h2>
                             {useInfo.userData.pendingMessages.length > 0 && useInfo.userData.pendingMessages.map((val, idx) => {
                                 if (val.askId) {
-                                    return (<div className="card">
-                                    <div className="right">
-                                       
-                                        <div className="author">
-    
-                                        
-                                        <h1 className="h1t"> <a className="Asks" href='#'>{val.userName} Asks</a> </h1>
+                                    return (<div className="cardx">
+                                        <div className="right">
+                                            <div className="author">
+                                            <li> <p className="timee">{val.time}</p></li>
+                                                <h1 className="h1t"> <a className="Asks" href='#'>TO {val.destination}</a> </h1>
+                                            </div>
+                                            <div className="separator"></div>
+                                            <li> <p className="p1">The Payment will be {val.cost} JD </p></li>
+                                            <li> <p className="p1">The State is {val.messageState}</p></li>
                                         </div>
-                                        <div className="separator"></div>
-                                        <li> <p className="p1">Location: {val.location} </p></li>
-                                        <li> <p className="p1">{val.time}</p></li>
-                                        <li> <p className="p1">State: {val.messageState}</p></li>
-                                    </div>
-                                    <section>
-                                     <h5>TO {val.destination} </h5><h6> {val.cost} JD</h6>
-                                    </section>
-                                    
-                                    
-    
-                                    <div className="fab1">
-                                        <i className="fa fa-arrow-down fa-3x"></i>
-                                    </div>
-                                </div>)
+                                        <section>
+                                            <h5>{val.userName} Ask </h5><h6>From {val.location}</h6>
+                                        </section>
+                                        <img className="fab1" src="https://www.monro.com/wp-content/uploads/2019/09/service-tires-balance.png" />
+                                    </div>)
                                 } else {
-                                    return (<div className="card">
-                                    <div className="right">
-                                       
-                                        <div className="author">
-    
-                                        
-                                        <h1 className="h1t"> <a className="Asks" href='#'>{val.userName} Offers</a> </h1>
+                                    return (<div className="cardx">
+                                        <div className="right">
+                                            <div className="author">
+                                            <li> <p className="timee">{val.time}</p></li>
+                                                <h1 className="h1t"> <a className="Asks" href='#'>TO {val.destination}</a> </h1>
+                                            </div>
+                                            <div className="separator"></div>
+                                            <li> <p className="p1">The Cost will be {val.cost} JD </p></li>
+                                            <li> <p className="p1">Available Seats  {val.seats} </p></li>
+                                            <li> <p className="p1">His Car Type {val.catType}</p></li>
+                                            <li> <p className="p1">The State is {val.messageState}</p></li>
                                         </div>
-                                        <div className="separator"></div>
-                                        <li> <p className="p1">Location: {val.location} </p></li>
-                                        <li> <p className="p1">{val.time}</p></li>
-                                        <li> <p className="p1">Seats: {val.seats}</p></li>
-                                        <li> <p className="p1">Car: {val.catType}</p></li>
-                                        <li> <p className="p1">State: {val.messageState}</p></li>
+                                        <section>
+                                            <h5>{val.userName} Offer </h5><h6> From {val.location}</h6>
+                                        </section>
+                                        <img className="fab1" src="https://www.monro.com/wp-content/uploads/2019/09/service-tires-balance.png" />
                                     </div>
-                                    <section>
-                                     <h5>TO {val.destination} </h5><h6> {val.cost} JD</h6>
-                                    </section>
-                                    
-                                    
-    
-                                    <div className="fab1">
-                                        <i className="fa fa-arrow-down fa-3x"></i>
-                                    </div>
-                                </div>)
+                                    )
                                 }
-
-
-
-                                // return <li key={idx}> {JSON.stringify(val)} </li>
                             })}
-                            {useInfo.userData.pendingMessages.length === 0 && <li>Empty</li>}
-
-
-
-                            <h2>Messages</h2>
-                            <h2>Asks Messages:</h2>
-
+                            {useInfo.userData.pendingMessages.length === 0 && <li></li>}<section className="D-boo">
                             {useInfo.userData.askMessages.length > 0 && useInfo.userData.askMessages.map((val, idx) => {
-                                console.log('ask object', val);
+                                // console.log('ask object', val);
                                 if (val.askId) {
                                     return (
-
                                         <form key={idx} onSubmit={e => { return (handleAskResponse(e), setButtonState(!buttonState)) }}>
+                                            <a href="#">
+                                                <figure>
+                                                    <div class="date2"><span class="card-date-day">{val.askId.split(' ').pop()}</span><span class="card-date-month">Ask</span></div>
+                                                    <figcaption><p><a className="Asksm" href='#'>{val.userName}</a> Offered you a ride ...</p><p><input type='hidden' name='userId' value={val.userId} />
+                                                        <input type='hidden' name='askId' value={val.askId} />
 
-                                            <li> <a href='#'>{val.userName}</a> Offered you a ride ...</li>
-                                            <li> My Ask Number:{val.askId.split(' ').pop()}</li>
-                                            <input type='hidden' name='userId' value={val.userId} />
-                                            <input type='hidden' name='askId' value={val.askId} />
-
-                                            {val.booked !== 'true' &&
-                                                <>
-                                                    <label>
-                                                        Accept <input type="radio" name="action" value="accept" defaultChecked />
-                                                    </label>
-                                                    <label>
-                                                        Decline <input type="radio" name="action" value="decline" />
-                                                    </label>
-                                                </>
-                                            }
-
-                                            {val.booked === 'true' && <li> Booked !!</li>}
-                                            {val.booked !== 'true' && <button type='submit'> Send </button>}
+                                                        {val.booked !== 'true' &&
+                                                            <>
+                                                                <label>
+                                                                    Accept <input type="radio" name="action" value="accept" defaultChecked />&nbsp;&nbsp;
+                                                                </label>
+                                                                <label>
+                                                                &nbsp;&nbsp; Decline <input type="radio" name="action" value="decline" />
+                                                                </label>
+                                                            </>
+                                                        }</p>
+                                                        <h4> <span>
+                                                            {val.booked === 'true' && <li> Booked !!</li>}
+                                                            {val.booked !== 'true' && <button className="button-send" type='submit'> Send </button>} </span></h4>
+                                                    </figcaption>
+                                                </figure></a>
                                         </form>
                                     )
                                 }
-                                // <li key={idx}> {JSON.stringify(val)} </li>
                             })}
-                            {useInfo.userData.askMessages.length === 0 && <li>No messages</li>}
-
-
-                            {/*  */}
-
-                            <h2>Offers Messages:</h2>
-
+                            {useInfo.userData.askMessages.length === 0 && <li></li>}
                             {useInfo.userData.offerMessages.length > 0 && useInfo.userData.offerMessages.map((val, idx) => {
                                 if (val.offerId) {
-
-                                    console.log('offers', val)
-                                    return (
-                                        <form key={idx} onSubmit={e => { return (handleOfferResponse(e), setButtonState(!buttonState)) }}>
-
-                                            <li> <a href='#'>{val.userName}</a> Asked You To Share the Ride...</li>
-                                            <li> My Offer Number:{val.offerId.split(' ').pop()}</li>
-                                            <input type='hidden' name='userId' value={val.userId} />
-                                            <input type='hidden' name='offerId' value={val.offerId} />
-
-                                            {val.booked !== 'true' &&
-                                                <>
-                                                    <label>
-                                                        Accept <input type="radio" name="action" value="accept" defaultChecked />
-                                                    </label>
-                                                    <label>
-                                                        Decline <input type="radio" name="action" value="decline" />
-                                                    </label>
-                                                </>
-                                            }
-
-                                            {val.booked === 'true' && <li> Booked !!</li>}
-                                            {val.booked !== 'true' && <button type='submit'> Send </button>}
-                                        </form>
+                                    // console.log('offers', val)
+                                    return (<form key={idx} onSubmit={e => { return (handleOfferResponse(e), setButtonState(!buttonState)) }}>
+                                        <a href="#">
+                                            <figure>
+                                                <div class="date"><span class="card-date-day">{val.offerId.split(' ').pop()}</span><span class="card-date-month">Offer</span></div>
+                                                <figcaption><p><a className="Asksm" href='#'>{val.userName}</a> Asked You To Share the Ride...</p><p><input type='hidden' name='userId' value={val.userId} />
+                                                    <input type='hidden' name='offerId' value={val.offerId} />
+                                                    {val.booked !== 'true' &&
+                                                        <>
+                                                            <label>
+                                                                Accept <input type="radio" name="action" value="accept" defaultChecked />&nbsp;&nbsp;
+                                                            </label>
+                                                            <label>
+                                                            &nbsp;&nbsp;  Decline <input type="radio" name="action" value="decline" />
+                                                            </label>
+                                                        </>
+                                                    }</p>
+                                                    <h4> <span>
+                                                        {val.booked === 'true' && <li> Booked !!</li>}
+                                                        {val.booked !== 'true' && <button type='submit'> Send </button>} </span></h4>
+                                                </figcaption>
+                                            </figure></a>
+                                    </form>
                                     )
                                 }
-
-                                // return <li key={idx}> {JSON.stringify(val)} </li>
-                            })}
-                            {useInfo.userData.offerMessages.length === 0 && <li>No messages</li>}
-                            {/*  */}
+                            })}</section>
+                            {useInfo.userData.offerMessages.length === 0 && <li></li>}
                         </section>
+                        
                     }
-
                     {useInfo.current === 'tasks' &&
                         <section>
                             {(useInfo.userData.rides.length === 0 && useInfo.userData.drives.length === 0) && <li>No Tasks Yet!!</li>}
 
                             {useInfo.userData.rides.length > 0 && useInfo.userData.rides.map((val, idx) => {
                                 return (
-                                    <div className="card">
-                                        <div className="right">
-                                           
-                                            <div className="author">
-
-                                            
-                                            <h1 className="h1t"> <a className="Asks" href='#'>{val.userName} Asks</a> </h1>
+                                    <div class="containerc">
+                                        <div class="card">
+                                            <div class="card__image-container">
+                                                <img class="card__image" src={imgMyTasks2} alt="" />
                                             </div>
-                                            <div className="separator"></div>
-                                            <li> <p className="p1">Location: {val.location}</p></li>
-                                            <li> <p className="p1">{val.time}</p></li>
-                                            <li> <p className="p1">State: {val.messageState}</p></li>
-                                        </div>
-                                        <section>
-                                         <h5>TO {val.destination} </h5><h6> {val.cost} JD</h6>
-                                        </section>
-                                        
-                                        
+                                            <svg  class="card__svg" viewBox="0 0 800 500">
 
-                                        <div className="fab1">
-                                            <i className="fa fa-arrow-down fa-3x"></i>
+                                                <path  d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#333" />
+                                                <path class="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="pink" stroke-width="3" fill="transparent" />
+                                            </svg>
+                                            <div class="card__content">
+                                                <h1 class="card__title">Ask</h1>
+                                                <h3 >For a Ride From {val.location} TO {val.destination}</h3>
+                                                <h3 > at {val.time}</h3>
+                                                
+                                                <h3 class="details">and the payment will be {val.cost} JD</h3>
+                                            </div>
                                         </div>
                                     </div>
-
-
-                                    // <div key={idx}> {JSON.stringify(val)} </div>
                                 )
                             })}
-
-
+                            <br/>
                             {useInfo.userData.drives.length > 0 && useInfo.userData.drives.map((val, idx) => {
-                                return (<div className="card">
-                                <div className="right">
-                                   
-                                    <div className="author">
+                                return (
+                                    <div class="containerc">
 
-                                    
-                                    <h1 className="h1t"> <a className="Asks" href='#'>{val.userName} Offers</a> </h1>
-                                    </div>
-                                    <div className="separator"></div>
-                                    <li> <p className="p1">Location: {val.location}</p></li>
-                                    <li> <p className="p1">{val.time}</p></li>
-                                    <li> <p className="p1">State: {val.messageState}</p></li>
-                                    <li> <p className="p1">Car: {val.catType}</p></li>
-                                    <li> <p className="p1">Seats: {val.seats}</p></li>
-                                </div>
-                                <section>
-                                 <h5>TO {val.destination} </h5><h6> {val.cost} JD</h6>
-                                </section>
-                                
-                                
+                                        <div class="cardMT">
+                                            <div class="card__image-container">
+                                                <img class="card__image" src={imgMyTasks} alt="" />
+                                            </div>
 
-                                <div className="fab1">
-                                    <i className="fa fa-arrow-down fa-3x"></i>
-                                </div>
-                            </div>)
+                                            <svg class="card__svg" viewBox="0 0 800 500">
+
+                                                <path d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#333" />
+                                                <path class="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="pink" stroke-width="3" fill="transparent" />
+                                            </svg>
+
+                                            <div class="card__content">
+                                                <h1 class="card__title"> Offer </h1>
+                                                <h3 >a Ride to Share From {val.location} TO {val.destination}</h3>
+                                                <h3 >at {val.time}</h3>
+                                                <h3 class="card__title">The Car Will Be {val.catType}</h3>
+                                                <h3 class="card__title">And Have {val.seats} Seats Available </h3>
+                                                <h3 class="details">The Cost will be {val.cost} JD </h3>
+                                            </div>
+                                        </div></div>
+                                )
                             })}
                         </section>
                     }
-
-
                     {useInfo.current === 'settings' &&
                         <section>
                             <h2>User Info</h2>
 
                             {
 
-                                <form onSubmit={e => handleSubmit(e)}>
+                                <form className="form1" onSubmit={e => handleSubmit(e)}>
 
                                     <div className="input-group">
                                         <input name='userName' placeholder="User Name" required defaultValue={useInfo.userData.info.name} />
@@ -308,10 +258,7 @@ function MainSide() {
                         </section>
                     }
                 </div>
-
             }
-
-
         </>
     )
 }
