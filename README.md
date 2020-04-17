@@ -40,7 +40,8 @@ Same as hitchhiking idea which is used to get a lift with passing vehicles when 
 * You will have the chance to meet friendly people on the application, which then would give you a life time friendship!
 * Reducing the pollution and saving the environment 
 * Decreasing the use of cars which will reduce the traffic, as well as it will help to reduce the pollutant emission.
-=======
+
+
 #### UML
 
 ![UML](src/img/uml.png)
